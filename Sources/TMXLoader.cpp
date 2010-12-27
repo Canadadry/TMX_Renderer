@@ -27,7 +27,7 @@
  */
 #include "ImageManager.hpp"
 #include "TMXLoader.hpp"
-#include "ImplementedLoader.h"
+#include "InternalLoader.h"
 #include "TMXMap.h"
 #include "TileSet.h"
 #include "TileMap.h"
@@ -65,7 +65,7 @@ TMXLoader::~TMXLoader()
 
 bool TMXLoader::LoadFromFile(const std::string& filename)
 {
-	ImplementedLoader private_loader(filename);
+	InternalLoader private_loader(filename);
 	m_map = private_loader.m_map;
 	m_tilesets = ExtractTileSets();
 	return (m_map != NULL);
