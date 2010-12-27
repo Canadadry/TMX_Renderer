@@ -38,7 +38,7 @@ struct Delete
 };
 
 TMXMap::TMXMap()
-: name(0)
+: name("")
 , width(0)
 , height(0)
 , tileWidth(0)
@@ -57,8 +57,8 @@ TMXMap::~TMXMap()
 
 TMXTileSet::TMXTileSet()
 : firtGlobalID(1)
-, name(0)
-, sourceFileName(0)
+, name("")
+, sourceFileName("")
 , tileWidth(0)
 , tileHeight(0)
 , spacing(0)
@@ -67,12 +67,10 @@ TMXTileSet::TMXTileSet()
 
 TMXTileSet::~TMXTileSet()
 {
-	if (!name) delete name;
-	if (!sourceFileName) delete sourceFileName;
 }
 
 TMXLayer::TMXLayer()
-: name(0)
+: name("")
 , opacity(1.0)
 , visible(1)
 , data()
@@ -81,14 +79,12 @@ TMXLayer::TMXLayer()
 
 TMXLayer::~TMXLayer()	
 {
-	if (!name) delete name;
 	std::for_each(properties.begin() , properties.end() , Delete());
-
 }
 
 TMXProperty::TMXProperty()
-: name()
-, value()
+: name("")
+, value("")
 , intValue(0)
 , doubleValue(0.0)
 {

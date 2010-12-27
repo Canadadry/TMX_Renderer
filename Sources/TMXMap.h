@@ -42,7 +42,7 @@ public:
 	TMXMap();
 	~TMXMap();
 	
-	const char* name;
+	std::string name;
 	int width;
 	int height;
 	int tileWidth;
@@ -59,8 +59,8 @@ public:
 	~TMXTileSet();
 	
 	int firtGlobalID;
-	const char* name;
-	const char* sourceFileName;
+	std::string name;
+	std::string sourceFileName;
 	int tileWidth;
 	int tileHeight;
 	int spacing;
@@ -72,7 +72,7 @@ class TMXLayer
 public:
 	TMXLayer();
 	~TMXLayer();
-	const char* name;
+	std::string name;
 	float opacity;
 	int  visible;
 	std::vector<int> data;
