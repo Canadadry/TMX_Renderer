@@ -38,21 +38,18 @@ struct Delete
 };
 
 TMXMap::TMXMap()
-: name("")
-, width(0)
+: width(0)
 , height(0)
 , tileWidth(0)
 , tileHeight(0)
 , tilesets()
 , layers()
-, properties()
 {}
 
 TMXMap::~TMXMap()
 {
 	std::for_each(layers.begin()     , layers.end()     , Delete());
 	std::for_each(tilesets.begin()   , tilesets.end()   , Delete());
-	std::for_each(properties.begin() , properties.end() , Delete());
 }
 
 TMXTileSet::TMXTileSet()
@@ -74,23 +71,9 @@ TMXLayer::TMXLayer()
 , opacity(1.0)
 , visible(1)
 , data()
-, properties()
 {}
 
 TMXLayer::~TMXLayer()	
-{
-	std::for_each(properties.begin() , properties.end() , Delete());
-}
-
-TMXProperty::TMXProperty()
-: name("")
-, value("")
-, intValue(0)
-, doubleValue(0.0)
-{
-}
-
-TMXProperty::~TMXProperty()
 {
 }
 

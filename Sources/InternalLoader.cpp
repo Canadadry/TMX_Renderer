@@ -29,7 +29,7 @@
 #include "TMXMap.h"
 #include <TinyXML/TinyXML.h>
 
-//#define _LOG_
+#define _LOG_
 #ifdef _LOG_
 #include <iostream>
 #define PRINT(...) printf(__VA_ARGS__)
@@ -105,31 +105,6 @@ void InternalLoader::readMap(TiXmlNode* node)
 			{
 				m_map->layers.push_back(readLayer(pChild));
 			}
-			else if( std::string(pChild->Value()) == "properties")
-			{
-				readProperties(pChild,m_map->properties);
-			}
-		}
-	}
-}
-void InternalLoader::readProperties(TiXmlNode* node, std::vector<TMXProperty*>& properties)
-{
-	PRINT("Reading Properties\n");
-	for(TiXmlNode* pChild = node->FirstChild(); pChild != 0; pChild = pChild->NextSibling()) 
-	{
-		if( pChild->Type() == TiXmlNode::TINYXML_ELEMENT)
-		{
-			if( std::string(pChild->Value()) == "property")
-			{
-				TMXProperty* property = new TMXProperty;
-				TiXmlElement* pElement = pChild->ToElement();
-				property->name  = pElement->Attribute("name");
-				property->value = pElement->Attribute("value");
-				pElement->QueryIntAttribute("value",&(property->intValue));
-				pElement->QueryDoubleAttribute("value",&(property->doubleValue));
-				PRINT("Found property name:%s charValue:%s intValue:%d doubleValue:%lf\n",property->name,property->value,property->intValue,property->doubleValue);
-				properties.push_back(property);
-			}
 		}
 	}
 }
@@ -141,8 +116,8 @@ TMXTileSet* InternalLoader::readTileSet(TiXmlNode* node)
 	TMXTileSet* tileset = new TMXTileSet;
 	TiXmlElement* pElement = node->ToElement(); //on le converti en element
 	
-	tileset->name = (char *)pElement->Attribute("name");
-	PRINT("name %s\n",tileset->name);
+	tileset->name = pElement->Attribute("name");
+	PRINT("name %s\n",tileset->name.c_str());
 	pElement->QueryIntAttribute("firstgid",&(tileset->firtGlobalID));
 	PRINT("firstgid %d\n",tileset->firtGlobalID);
 	pElement->QueryIntAttribute("tilewidth",&(tileset->tileWidth));
@@ -161,7 +136,7 @@ TMXTileSet* InternalLoader::readTileSet(TiXmlNode* node)
 			if( std::string(pChild->Value()) == "image")
 			{
 				tileset->sourceFileName = readImage(pChild);
-				PRINT("source %s\n",tileset->sourceFileName);
+				PRINT("source %s\n",tileset->sourceFileName.c_str());
 			}
 		}
 	}
@@ -182,8 +157,8 @@ TMXLayer* InternalLoader::readLayer(TiXmlNode* node)
 	layer->data.reserve(m_map->width*m_map->height);
 	TiXmlElement* pElement = node->ToElement(); //on le converti en element
 	
-	layer->name = (char*)pElement->Attribute("name");
-	PRINT("name %s\n",layer->name);
+	layer->name = pElement->Attribute("name");
+	PRINT("name %s\n",layer->name.c_str());
 	pElement->QueryFloatAttribute("opacity",&(layer->opacity));
 	PRINT("opacity %f\n",layer->opacity);
 	pElement->QueryIntAttribute("visible",&(layer->visible));
@@ -198,10 +173,6 @@ TMXLayer* InternalLoader::readLayer(TiXmlNode* node)
 			if( std::string(pChild->Value()) == "data")
 			{
 				readData(pChild,layer->data); 
-			}
-			else if( std::string(pChild->Value()) == "properties")
-			{
-				readProperties(pChild,layer->properties);
 			}
 		}
 	}
@@ -251,7 +222,7 @@ void InternalLoader::readXML(TiXmlNode* node,std::vector<int>& data)
 			}
 		}
 	}
-	PRINT(" end data\n%d tiles read",data.size());
+	PRINT(" end data\n%d tiles read",(int)data.size());
 }
 
 void InternalLoader::readCSV(TiXmlNode* node,std::vector<int>& data)
@@ -279,7 +250,7 @@ void InternalLoader::readCSV(TiXmlNode* node,std::vector<int>& data)
 	}
 	data.push_back(number);
 	PRINT("%d",number);
-	PRINT(" end data\n%d tiles read",data.size());
+	PRINT(" end data\n%d tiles read",(int)data.size());
 }
 
 void InternalLoader::decodeblock( unsigned char* in, unsigned char* out ) //in must contain 4 char, out must contain 3 char
@@ -340,7 +311,7 @@ void InternalLoader::readBase64(TiXmlNode* node,const char* compression,std::vec
 			data.push_back(gid);
 			PRINT("%d,",gid);
 		}
-		PRINT(" end data\n%d tiles read",data.size());
+		PRINT(" end data\n%d tiles read",(int)data.size());
 		free(output_text);
 	}
 }

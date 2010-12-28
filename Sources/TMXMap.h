@@ -42,14 +42,12 @@ public:
 	TMXMap();
 	~TMXMap();
 	
-	std::string name;
 	int width;
 	int height;
 	int tileWidth;
 	int tileHeight;
 	std::vector<TMXTileSet*> tilesets;
 	std::vector<TMXLayer*>   layers;
-	std::vector<TMXProperty*> properties;
 };
 
 class TMXTileSet
@@ -76,18 +74,6 @@ public:
 	float opacity;
 	int  visible;
 	std::vector<int> data;
-	std::vector<TMXProperty*> properties;
-};
-
-class TMXProperty
-{
-public:
-	TMXProperty();
-	~TMXProperty();
-	std::string name;
-	std::string value;
-	int intValue;
-	double doubleValue;
 };
 
 #endif //end of TMXMap

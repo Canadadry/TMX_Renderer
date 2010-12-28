@@ -35,7 +35,6 @@
 class TMXMap;
 class TMXTileSet;
 class TMXLayer;
-class TMXProperty;
 class TiXmlNode;
 
 class InternalLoader 
@@ -47,7 +46,6 @@ public:
 	
 private:
 	void readMap(TiXmlNode* node);
-	void readProperties(TiXmlNode* node, std::vector<TMXProperty*>& porperties);
 	TMXTileSet* readTileSet(TiXmlNode* node);
 	const char* readImage(TiXmlNode* node);
 	TMXLayer* readLayer(TiXmlNode* node);
