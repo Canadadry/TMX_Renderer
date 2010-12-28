@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6C05FBD812BD618300E2BD3C /* AnimatedSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C05FBD512BD618300E2BD3C /* AnimatedSprite.cpp */; };
-		6C05FBD912BD618300E2BD3C /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C05FBD612BD618300E2BD3C /* Animation.cpp */; };
-		6C05FBDA12BD618300E2BD3C /* AnimationFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C05FBD712BD618300E2BD3C /* AnimationFrame.cpp */; };
 		6C05FBFE12BD632600E2BD3C /* link.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 6C05FBFB12BD632600E2BD3C /* link.tmx */; };
 		6C05FC1912BD67B100E2BD3C /* ImageManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C05FC1812BD67B100E2BD3C /* ImageManager.cpp */; };
 		6C05FC2212BD694100E2BD3C /* TMXMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C05FC2112BD694100E2BD3C /* TMXMap.cpp */; };
@@ -48,12 +45,6 @@
 
 /* Begin PBXFileReference section */
 		6C01163612BAA3A7009884DD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6C05FBD212BD618300E2BD3C /* AnimatedSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnimatedSprite.h; path = Sources/AnimatedSprite.h; sourceTree = "<group>"; };
-		6C05FBD312BD618300E2BD3C /* Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Animation.h; path = Sources/Animation.h; sourceTree = "<group>"; };
-		6C05FBD412BD618300E2BD3C /* AnimationFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnimationFrame.h; path = Sources/AnimationFrame.h; sourceTree = "<group>"; };
-		6C05FBD512BD618300E2BD3C /* AnimatedSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AnimatedSprite.cpp; path = Sources/AnimatedSprite.cpp; sourceTree = "<group>"; };
-		6C05FBD612BD618300E2BD3C /* Animation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Animation.cpp; path = Sources/Animation.cpp; sourceTree = "<group>"; };
-		6C05FBD712BD618300E2BD3C /* AnimationFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AnimationFrame.cpp; path = Sources/AnimationFrame.cpp; sourceTree = "<group>"; };
 		6C05FBFB12BD632600E2BD3C /* link.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = link.tmx; path = Data/link.tmx; sourceTree = "<group>"; };
 		6C05FC1712BD67B100E2BD3C /* ImageManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ImageManager.hpp; path = Sources/ImageManager.hpp; sourceTree = "<group>"; };
 		6C05FC1812BD67B100E2BD3C /* ImageManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ImageManager.cpp; path = Sources/ImageManager.cpp; sourceTree = "<group>"; };
@@ -149,12 +140,6 @@
 				6CD318E112B95E6300668A74 /* TileSet.cpp */,
 				6CD318DE12B95E6300668A74 /* TileMap.h */,
 				6CD318E012B95E6300668A74 /* TileMap.cpp */,
-				6C05FBD212BD618300E2BD3C /* AnimatedSprite.h */,
-				6C05FBD512BD618300E2BD3C /* AnimatedSprite.cpp */,
-				6C05FBD312BD618300E2BD3C /* Animation.h */,
-				6C05FBD612BD618300E2BD3C /* Animation.cpp */,
-				6C05FBD412BD618300E2BD3C /* AnimationFrame.h */,
-				6C05FBD712BD618300E2BD3C /* AnimationFrame.cpp */,
 				6CD318DC12B95E1C00668A74 /* main.cpp */,
 				6C05FC2012BD694100E2BD3C /* TMXMap.h */,
 				6C05FC2112BD694100E2BD3C /* TMXMap.cpp */,
@@ -231,9 +216,6 @@
 				6CD318E212B95E6300668A74 /* TileMap.cpp in Sources */,
 				6CD318E312B95E6300668A74 /* TileSet.cpp in Sources */,
 				6C71B11E12BAA7E600D9D848 /* TMXLoader.cpp in Sources */,
-				6C05FBD812BD618300E2BD3C /* AnimatedSprite.cpp in Sources */,
-				6C05FBD912BD618300E2BD3C /* Animation.cpp in Sources */,
-				6C05FBDA12BD618300E2BD3C /* AnimationFrame.cpp in Sources */,
 				6C05FC1912BD67B100E2BD3C /* ImageManager.cpp in Sources */,
 				6C05FC2212BD694100E2BD3C /* TMXMap.cpp in Sources */,
 				6C05FC2712BD69D500E2BD3C /* InternalLoader.cpp in Sources */,

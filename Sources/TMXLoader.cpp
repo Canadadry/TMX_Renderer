@@ -31,9 +31,6 @@
 #include "TMXMap.h"
 #include "TileSet.h"
 #include "TileMap.h"
-#include "AnimatedSprite.h"
-#include "AnimationFrame.h"
-#include "Animation.h"
 
 #include <algorithm>
 #include <iostream>
@@ -127,92 +124,6 @@ std::vector<TileMap*> TMXLoader::ExtractAsSeparateMap() const
 		layers.push_back(layer);
 	}
 	return layers;
-}
-
-std::vector<Animation*> TMXLoader::ExtractAsAnimation() const
-{
-	if(m_map==NULL) return std::vector<Animation*>();
-	
-	std::vector<Animation*> tabAnim;
-	for (int l=0;l<m_map->layers.size();l++)
-	{
-		for (int i=0;i<m_map->height;i++)
-		{
-			Animation* anim = new Animation;
-			for (int j = 0; j < m_map->width; j++)
-			{
-				int id = m_map->layers[l]->data[m_map->width*i+j];
-				if (id==0) break;
-				int tileset = m_tilesets->getTileSetFromID(id);
-				anim->PushFrame(AnimationFrame((*m_tilesets)[tileset]->getImage(),(*m_tilesets)[tileset]->getRectOfTile(id)));
-			}
-			if (anim->Size() == 0) delete anim;
-			else
-			{
-				PRINT("Found anim\n");
-				for(int p=0;p<m_map->layers[l]->properties.size();p++)
-				{
-					PRINT("Property found : name:%s value:%s\n",m_map->layers[l]->properties[p]->name.c_str(),m_map->layers[l]->properties[p]->value.c_str());
-					if(m_map->layers[l]->properties[p]->name == "speed")
-					{
-						PRINT("Found speed %lf\n",m_map->layers[l]->properties[p]->doubleValue);
-						anim->SetFrameTime(m_map->layers[l]->properties[p]->doubleValue);
-					}
-				}
-				tabAnim.push_back(anim);
-			}
-		}
-	}
-	return tabAnim;
-}
-
-std::vector<Animation*> TMXLoader::ExtractLayerAsAnimation(int layer) const
-{
-	if(m_map==NULL) return std::vector<Animation*>();
-	if( (layer <0) || (layer >= m_map->layers.size())) return std::vector<Animation*>();
-
-	std::vector<Animation*> tabAnim;
-	for (int i=0;i<m_map->height;i++)
-	{
-		Animation* anim = new Animation;
-		for (int j = 0; j < m_map->width; j++)
-		{
-			int id = m_map->layers[layer]->data[m_map->width*i+j];
-			if (id==0) break;
-			int tileset = m_tilesets->getTileSetFromID(id);
-			anim->PushFrame(AnimationFrame((*m_tilesets)[tileset]->getImage(),(*m_tilesets)[tileset]->getRectOfTile(id)));
-		}
-		if (anim->Size() == 0) delete anim;
-		else tabAnim.push_back(anim);
-	}
-	return tabAnim;
-}
-
-std::vector<Animation*> TMXLoader::ExtractLayerAsAnimation(const std::string& layerName) const
-{
-	if(m_map==NULL) return std::vector<Animation*>();
-	
-	std::vector<Animation*> tabAnim;
-	for (int l=0;l<m_map->layers.size();l++)
-	{
-		for (int i=0;i<m_map->height;i++)
-		{
-			if(std::string(m_map->layers[l]->name)==layerName)
-			{
-				Animation* anim = new Animation;
-				for (int j = 0; j < m_map->width; j++)
-				{
-					int id = m_map->layers[l]->data[m_map->width*i+j];
-					if (id==0) break;
-					int tileset = m_tilesets->getTileSetFromID(id);
-					anim->PushFrame(AnimationFrame((*m_tilesets)[tileset]->getImage(),(*m_tilesets)[tileset]->getRectOfTile(id)));
-				}
-				if (anim->Size() == 0) delete anim;
-				else tabAnim.push_back(anim);
-			}
-		}
-	}
-	return tabAnim;
 }
 
 TileSets* TMXLoader::ExtractTileSets() const

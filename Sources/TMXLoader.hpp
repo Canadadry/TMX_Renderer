@@ -35,7 +35,6 @@
 class TMXMap;
 class TileMap;
 class TileSets;
-class Animation;
 
 class TMXLoader
 {
@@ -50,11 +49,7 @@ public:
 	TileMap* ExtractLayerAsMap(int layer) const;
 	TileMap* ExtractLayerAsMap(const std::string& layerName) const;
 	std::vector<TileMap*> ExtractAsSeparateMap() const;
-	
-	std::vector<Animation*> ExtractAsAnimation() const;
-	std::vector<Animation*> ExtractLayerAsAnimation(int layer) const;
-	std::vector<Animation*> ExtractLayerAsAnimation(const std::string& layerName) const;
-	
+		
 private: 
 	TMXMap*   m_map;
 	TileSets* m_tilesets;
