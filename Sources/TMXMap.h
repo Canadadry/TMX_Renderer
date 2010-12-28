@@ -42,7 +42,6 @@ public:
 	TMXMap();
 	~TMXMap();
 	
-	std::string name;
 	int width;
 	int height;
 	int tileWidth;

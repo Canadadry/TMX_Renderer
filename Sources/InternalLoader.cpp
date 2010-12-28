@@ -141,8 +141,8 @@ TMXTileSet* InternalLoader::readTileSet(TiXmlNode* node)
 	TMXTileSet* tileset = new TMXTileSet;
 	TiXmlElement* pElement = node->ToElement(); //on le converti en element
 	
-	tileset->name = (char *)pElement->Attribute("name");
-	PRINT("name %s\n",tileset->name);
+	tileset->name = pElement->Attribute("name");
+	PRINT("name %s\n",tileset->name.c_str());
 	pElement->QueryIntAttribute("firstgid",&(tileset->firtGlobalID));
 	PRINT("firstgid %d\n",tileset->firtGlobalID);
 	pElement->QueryIntAttribute("tilewidth",&(tileset->tileWidth));
@@ -161,7 +161,7 @@ TMXTileSet* InternalLoader::readTileSet(TiXmlNode* node)
 			if( std::string(pChild->Value()) == "image")
 			{
 				tileset->sourceFileName = readImage(pChild);
-				PRINT("source %s\n",tileset->sourceFileName);
+				PRINT("source %s\n",tileset->sourceFileName.c_str());
 			}
 		}
 	}
@@ -182,8 +182,8 @@ TMXLayer* InternalLoader::readLayer(TiXmlNode* node)
 	layer->data.reserve(m_map->width*m_map->height);
 	TiXmlElement* pElement = node->ToElement(); //on le converti en element
 	
-	layer->name = (char*)pElement->Attribute("name");
-	PRINT("name %s\n",layer->name);
+	layer->name = pElement->Attribute("name");
+	PRINT("name %s\n",layer->name.c_str());
 	pElement->QueryFloatAttribute("opacity",&(layer->opacity));
 	PRINT("opacity %f\n",layer->opacity);
 	pElement->QueryIntAttribute("visible",&(layer->visible));

@@ -38,8 +38,7 @@ struct Delete
 };
 
 TMXMap::TMXMap()
-: name("")
-, width(0)
+: width(0)
 , height(0)
 , tileWidth(0)
 , tileHeight(0)
