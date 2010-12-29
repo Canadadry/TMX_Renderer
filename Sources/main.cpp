@@ -4,6 +4,9 @@
 
 int main (int argc, const char ** argv)
 {
+	if(argc >1) filename = argv[1];
+	else return 0;
+	
 	TMXLoader loader(filename);
 	TileMap* tilemap = loader.ExtractAsMap();
 	sf::RenderWindow App(sf::VideoMode(640,480), "TMX_Renderer : " + filename);

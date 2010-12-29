@@ -27,7 +27,7 @@
  */
 #include "InternalLoader.h"
 #include "TMXMap.h"
-#include <TinyXML/TinyXML.h>
+#include "tinyxml.h"
 
 //#define _LOG_
 #ifdef _LOG_
