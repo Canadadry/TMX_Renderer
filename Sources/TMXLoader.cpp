@@ -2,7 +2,7 @@
  *  TMXLoader.cpp
  *  TMXLoader
  *
- *  Created by mooglwy on 28/11/10.
+ *  Created by Canadadry on 28/11/10.
  *
  *  This software is provided 'as-is', without any express or
  *  implied warranty. In no event will the authors be held
