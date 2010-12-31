@@ -4,11 +4,14 @@
 
 int main (int argc, const char ** argv)
 {
+	std::string filename = "Zelda.tmx";
+	/*
 	if(argc >1) filename = argv[1];
 	else return 0;
+	//*/
 	
 	TMXLoader loader(filename);
-	TileMap* tilemap = loader.ExtractAsMap();
+	VectorTileMap tilemap = loader.ExtractAsVectorMap();
 	sf::RenderWindow App(sf::VideoMode(640,480), "TMX_Renderer : " + filename);
 	sf::View view = App.GetDefaultView();
 	App.SetView(view);
@@ -30,7 +33,8 @@ int main (int argc, const char ** argv)
 		
 		
 		App.Clear();
-		tilemap->renderMap(App,view.GetRect());
+		for (int i=0;i<tilemap.size();i++)
+			tilemap[i]->renderMap(App);
 		App.Display();
 	}
 	return 1;

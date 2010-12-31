@@ -47,7 +47,7 @@ public:
 	int getFirstID() const;
 	int getNumberOfTile() const;
 	bool containID(int id) const;
-	sf::Image* getImage() const;
+	sf::Image& getImage() const;
 	sf::IntRect getRectOfTile(int tileID) const;
 
 
@@ -62,10 +62,10 @@ private:
 		
 };
 
-class TileSets : public std::vector<TileSet*> 
+class VectorTileSet : public std::vector<TileSet*> 
 {
 public:
-	TileSets();
+	VectorTileSet();
 	int getTileSetFromID(int id) const;
 	
 };

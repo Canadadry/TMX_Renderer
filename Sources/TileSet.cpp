@@ -77,9 +77,9 @@ bool TileSet::containID(int id) const
 	return (id >= m_firstID) && (id < ( m_firstID + m_numberOfTile)); 
 }
 
-sf::Image* TileSet::getImage() const
+sf::Image& TileSet::getImage() const
 {
-	return m_image;
+	return *m_image;
 }
 
 sf::IntRect TileSet::getRectOfTile(int tileID) const
@@ -92,13 +92,14 @@ sf::IntRect TileSet::getRectOfTile(int tileID) const
 	return sf::IntRect(id_x*m_tilewidth,id_y*m_tileheight,(id_x+1)*m_tilewidth,(id_y+1)*m_tileheight);
 	
 }
-TileSets::TileSets()
+
+VectorTileSet::VectorTileSet()
 : std::vector<TileSet*>()
 {
 }
 
 
-int TileSets::getTileSetFromID(int id) const
+int VectorTileSet::getTileSetFromID(int id) const
 {
 	if (id == 0) return -1;
 	for(int i=0;i<size();i++)

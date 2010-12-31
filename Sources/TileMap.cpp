@@ -27,6 +27,7 @@
  */
 #include "TileMap.h"
 #include "TileSet.h"
+#include "Tile.h"
 #include "TMXLoader.hpp"
 #include <SFML/Graphics.hpp>
 
@@ -38,21 +39,19 @@ TileMap::TileMap(int width, int height, int tilewidth, int tileheight)
 , m_height(height)
 , m_tilewidth(tilewidth)
 , m_tileheight(tileheight)
-, m_layer()
+, m_layer(NULL)
 {
 }
 
 TileMap::~TileMap()
 {
-	for (int i=0; i<m_layer.size(); i++)
-	{
-		delete[] m_layer[i];
-	}
+	if (m_layer != NULL) delete[] m_layer;
 }
 
-void TileMap::addLayer(const std::vector<int>& data,const TileSets& tilesets, float opacity)
+void TileMap::setLayer(const std::vector<int>& data,const VectorTileSet& tilesets,float opacity)
 {
-	sf::Sprite* layer = new sf::Sprite[m_width*m_height];
+	if (m_layer != NULL) delete[] m_layer;
+	m_layer = new Tile[m_width*m_height];
 	for(int i=0; i<m_width;i++)
 	{
 		for(int j=0;j<m_height;j++)
@@ -61,53 +60,40 @@ void TileMap::addLayer(const std::vector<int>& data,const TileSets& tilesets, fl
 			int numTileSet = tilesets.getTileSetFromID(data[i+j*m_width]);
 			if (numTileSet>=0)
 			{
-				sf::IntRect rect = tilesets[numTileSet]->getRectOfTile(data[i+j*m_width]);
-				layer[pos].SetImage(*(tilesets[numTileSet]->getImage()));
-				layer[pos].SetSubRect(rect);
-				layer[pos].SetColor(sf::Color(255,255,255,255*opacity));
+				m_layer[pos].SetTile(*tilesets[numTileSet],data[i+j*m_width]);
+				m_layer[pos].SetColor(sf::Color(255,255,255,255*opacity));
 			}
 			else 
 			{
-				layer[pos].SetColor(sf::Color(255,255,255,0));
+				m_layer[pos].SetColor(sf::Color(255,255,255,0));
 			}
-			layer[pos].SetPosition(i*m_tilewidth,j*m_tileheight);
+			m_layer[pos].SetPosition(i*m_tilewidth,j*m_tileheight);
 		}
 	}
-	m_layer.push_back(layer);
 }
-
-void TileMap::addLayers(TileMap& layers)
+void TileMap::setTile(int x, int y,int tile_id,const VectorTileSet& tilesets,float opacity)
 {
-	if(   (m_width      != layers.m_width     ) 
-	   || (m_height     != layers.m_height    ) 
-	   || (m_tilewidth  != layers.m_tilewidth ) 
-	   || (m_tileheight != layers.m_tileheight) )
+	int pos = x+y*m_width;
+	int numTileSet = tilesets.getTileSetFromID(tile_id);
+	if (numTileSet>=0)
 	{
-		return;
+		m_layer[pos].SetTile(*tilesets[numTileSet],tile_id);
+		m_layer[pos].SetColor(sf::Color(255,255,255,255*opacity));
 	}
-	for(int l=0;l<layers.m_layer.size();l++)
+	else 
 	{
-		m_layer.push_back(layers.m_layer[l]);
-	}
-	layers.m_layer.clear();
+		m_layer[pos].SetColor(sf::Color(255,255,255,0));
+	}	
 }
 
 
-void TileMap::renderMap(sf::RenderWindow& window,const sf::FloatRect& area) const
-{
-	int first_x = MAX(0,area.Left / (float)m_tilewidth);
-	int first_y = MAX(0,area.Top  / (float)m_tileheight);
-	int  last_x = MIN(m_width,(area.Right  / (float)m_tilewidth)+1);
-	int  last_y = MIN(m_height,(area.Bottom / (float)m_tileheight)+1);
-	
-	for(int l=0;l<m_layer.size();l++)
+void TileMap::renderMap(sf::RenderWindow& window) const
+{	
+	for(int i= 0;i<m_width;i++)
 	{
-		for(int i= first_x;i<last_x;i++)
+		for(int j=0;j<m_height;j++)
 		{
-			for(int j=first_y;j<last_y;j++)
-			{
-				window.Draw(m_layer[l][i+j*m_width]);
-			}
+			window.Draw(m_layer[i+j*m_width]);
 		}
 	}
 }

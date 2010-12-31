@@ -64,24 +64,8 @@ bool TMXLoader::LoadFromFile(const std::string& filename)
 {
 	InternalLoader private_loader(filename);
 	m_map = private_loader.m_map;
-	m_tilesets = ExtractTileSets();
+	m_tilesets = ExtractVectorTileSet();
 	return (m_map != NULL);
-}
-
-TileMap* TMXLoader::ExtractAsMap() const
-{
-	if(m_map==NULL) return NULL;
-
-	TileMap* layers = new TileMap(m_map->width,m_map->height,m_map->tileWidth,m_map->tileHeight);
-	
-	for (int i = 0; i < m_map->layers.size(); i++)
-	{
-		if(m_map->layers[i]->visible==1)
-		{
-			layers->addLayer(m_map->layers[i]->data,*m_tilesets,m_map->layers[i]->opacity);
-		}
-	}
-	return layers;
 }
 
 TileMap* TMXLoader::ExtractLayerAsMap(int layer) const
@@ -90,7 +74,7 @@ TileMap* TMXLoader::ExtractLayerAsMap(int layer) const
 	if( (layer <0) || (layer >= m_map->layers.size())) return NULL;
 	
 	TileMap* layers = new TileMap(m_map->width,m_map->height,m_map->tileWidth,m_map->tileHeight);
-	layers->addLayer(m_map->layers[layer]->data,*m_tilesets,m_map->layers[layer]->opacity);
+	layers->setLayer(m_map->layers[layer]->data,*m_tilesets,m_map->layers[layer]->opacity);
 	
 	return layers;
 }
@@ -104,33 +88,33 @@ TileMap* TMXLoader::ExtractLayerAsMap(const std::string& layerName) const
 		if(std::string(m_map->layers[i]->name)==layerName)
 		{
 			TileMap* layer = new TileMap(m_map->width,m_map->height,m_map->tileWidth,m_map->tileHeight);
-			layer->addLayer(m_map->layers[i]->data,*m_tilesets,m_map->layers[i]->opacity);
+			layer->setLayer(m_map->layers[i]->data,*m_tilesets,m_map->layers[i]->opacity);
 			return layer;
 		}
 	}
 	return NULL;
 }
 
-std::vector<TileMap*> TMXLoader::ExtractAsSeparateMap() const
+std::vector<TileMap*> TMXLoader::ExtractAsVectorMap() const
 {
 	if(m_map==NULL) return std::vector<TileMap*>();
 	
-	std::vector<TileMap*> layers;
+	VectorTileMap layers;
 	
 	for (int i = 0; i < m_map->layers.size(); i++)
 	{
 		TileMap* layer = new TileMap(m_map->width,m_map->height,m_map->tileWidth,m_map->tileHeight);
-		layer->addLayer(m_map->layers[i]->data,*m_tilesets,m_map->layers[i]->opacity);
+		layer->setLayer(m_map->layers[i]->data,*m_tilesets,m_map->layers[i]->opacity);
 		layers.push_back(layer);
 	}
 	return layers;
 }
 
-TileSets* TMXLoader::ExtractTileSets() const
+VectorTileSet* TMXLoader::ExtractVectorTileSet() const
 {
 	if(m_map==NULL) return NULL;
 
-	TileSets* tilesets = new TileSets;
+	VectorTileSet* tilesets = new VectorTileSet;
 	for (int i = 0; i < m_map->tilesets.size(); i++)
 	{
 		TileSet* tileset = new TileSet();

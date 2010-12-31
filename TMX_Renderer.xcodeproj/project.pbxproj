@@ -12,6 +12,7 @@
 		6C05FC2712BD69D500E2BD3C /* InternalLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C05FC2612BD69D500E2BD3C /* InternalLoader.cpp */; };
 		6C3D581612BCB0EF00CD8FD0 /* Zelda.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D581412BCB0EF00CD8FD0 /* Zelda.png */; };
 		6C3D581712BCB0EF00CD8FD0 /* zelda.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D581512BCB0EF00CD8FD0 /* zelda.tmx */; };
+		6C52E7E012CCF1800094BEE7 /* Tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C52E7DF12CCF1800094BEE7 /* Tile.cpp */; };
 		6C71B11E12BAA7E600D9D848 /* TMXLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C71B11C12BAA7E600D9D848 /* TMXLoader.cpp */; };
 		6CC44BBA12CB3FC30005F112 /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CC44BB712CB3FC30005F112 /* tinyxml.cpp */; };
 		6CC44BBB12CB3FC30005F112 /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CC44BB812CB3FC30005F112 /* tinyxmlerror.cpp */; };
@@ -53,6 +54,8 @@
 		6C05FC2612BD69D500E2BD3C /* InternalLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = InternalLoader.cpp; path = Sources/InternalLoader.cpp; sourceTree = "<group>"; };
 		6C3D581412BCB0EF00CD8FD0 /* Zelda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Zelda.png; path = Data/Zelda.png; sourceTree = "<group>"; };
 		6C3D581512BCB0EF00CD8FD0 /* zelda.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = zelda.tmx; path = Data/zelda.tmx; sourceTree = "<group>"; };
+		6C52E7DE12CCF1800094BEE7 /* Tile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tile.h; path = Sources/Tile.h; sourceTree = "<group>"; };
+		6C52E7DF12CCF1800094BEE7 /* Tile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Tile.cpp; path = Sources/Tile.cpp; sourceTree = "<group>"; };
 		6C71B11A12BAA7E600D9D848 /* TMXLoader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TMXLoader.hpp; path = Sources/TMXLoader.hpp; sourceTree = "<group>"; };
 		6C71B11C12BAA7E600D9D848 /* TMXLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TMXLoader.cpp; path = Sources/TMXLoader.cpp; sourceTree = "<group>"; };
 		6CC44BB612CB3FC30005F112 /* tinyxml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tinyxml.h; path = Sources/tinyxml.h; sourceTree = "<group>"; };
@@ -144,6 +147,8 @@
 				6CD318DC12B95E1C00668A74 /* main.cpp */,
 				6C05FC2012BD694100E2BD3C /* TMXMap.h */,
 				6C05FC2112BD694100E2BD3C /* TMXMap.cpp */,
+				6C52E7DE12CCF1800094BEE7 /* Tile.h */,
+				6C52E7DF12CCF1800094BEE7 /* Tile.cpp */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -221,6 +226,7 @@
 				6CC44BBA12CB3FC30005F112 /* tinyxml.cpp in Sources */,
 				6CC44BBB12CB3FC30005F112 /* tinyxmlerror.cpp in Sources */,
 				6CC44BBC12CB3FC30005F112 /* tinyxmlparser.cpp in Sources */,
+				6C52E7E012CCF1800094BEE7 /* Tile.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

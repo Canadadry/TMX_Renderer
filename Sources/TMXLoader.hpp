@@ -34,7 +34,7 @@
 
 class TMXMap;
 class TileMap;
-class TileSets;
+class VectorTileSet;
 
 class TMXLoader
 {
@@ -43,16 +43,15 @@ public:
 	~TMXLoader();
 	bool LoadFromFile(const std::string& filename);
 	
-	TileSets* ExtractTileSets() const;
+	VectorTileSet* ExtractVectorTileSet() const;
 	
-	TileMap* ExtractAsMap() const;
 	TileMap* ExtractLayerAsMap(int layer) const;
 	TileMap* ExtractLayerAsMap(const std::string& layerName) const;
-	std::vector<TileMap*> ExtractAsSeparateMap() const;
+	std::vector<TileMap*> ExtractAsVectorMap() const;
 		
 private: 
 	TMXMap*   m_map;
-	TileSets* m_tilesets;
+	VectorTileSet* m_tilesets;
 
 };
 		

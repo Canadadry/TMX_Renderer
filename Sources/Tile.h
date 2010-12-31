@@ -1,8 +1,8 @@
 /*
- *  TileMap.h
+ *  Tile.h
  *  TMX_Renderer
  *
- *  Created by Canadadry on 15/12/10.
+ *  Created by Canadadry on 30/12/10.
  *
  *  This software is provided 'as-is', without any express or
  *  implied warranty. In no event will the authors be held
@@ -26,39 +26,20 @@
  *
  */
 
-#ifndef _TileMap_H_
-#define _TileMap_H_
+#ifndef _Tile_H_
+#define _Tile_H_
 
-#include <vector>
-#include <SFML/Graphics/Rect.hpp>
 
-namespace sf 
-{
-	class RenderWindow;
-}
+#include <SFML/Graphics/Sprite.hpp>
 
-class Tile;
 class TileSet;
-class VectorTileSet;
 
-
-class TileMap
+class Tile : public sf::Sprite
 {
 public:
-	TileMap(int width, int height, int tilewidth, int tileheight);
-	~TileMap();
-	void setLayer(const std::vector<int>& data,const VectorTileSet& tilesets,float opacity=1.0);
-	void setTile(int x, int y,int tile_id,const VectorTileSet& tilesets,float opacity=1.0);
-	void renderMap(sf::RenderWindow& window) const;
-	
-private:
-	int m_width;
-	int m_height;
-	int m_tilewidth;
-	int m_tileheight;
-	Tile* m_layer;
+	Tile();
+	void SetTile(const TileSet& tileset,int id);
 };
 
-typedef std::vector<TileMap*> VectorTileMap;
 
-#endif //end of TileMap
+#endif //end of Tile
