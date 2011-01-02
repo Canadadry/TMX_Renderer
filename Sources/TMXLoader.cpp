@@ -113,6 +113,7 @@ std::vector<TileMap*> TMXLoader::ExtractAsVectorMap() const
 VectorTileSet* TMXLoader::ExtractVectorTileSet() const
 {
 	if(m_map==NULL) return NULL;
+	if(m_tilesets!=NULL) return m_tilesets;
 
 	VectorTileSet* tilesets = new VectorTileSet;
 	for (int i = 0; i < m_map->tilesets.size(); i++)
