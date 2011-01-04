@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="TMX_Renderer" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Release">
+				<Option output="win_bin\TMX_Renderer" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="win_bin\" />
+				<Option object_output="obj\Release\" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Linker>
+			<Add option="-lsfml-graphics" />
+			<Add option="-lsfml-window" />
+			<Add option="-lsfml-system" />
+		</Linker>
+		<Unit filename="Sources\ImageManager.cpp" />
+		<Unit filename="Sources\ImageManager.hpp" />
+		<Unit filename="Sources\InternalLoader.cpp" />
+		<Unit filename="Sources\InternalLoader.h" />
+		<Unit filename="Sources\TMXLoader.cpp" />
+		<Unit filename="Sources\TMXLoader.hpp" />
+		<Unit filename="Sources\TMXMap.cpp" />
+		<Unit filename="Sources\TMXMap.h" />
+		<Unit filename="Sources\Tile.cpp" />
+		<Unit filename="Sources\Tile.h" />
+		<Unit filename="Sources\TileMap.cpp" />
+		<Unit filename="Sources\TileMap.h" />
+		<Unit filename="Sources\TileSet.cpp" />
+		<Unit filename="Sources\TileSet.h" />
+		<Unit filename="Sources\main.cpp" />
+		<Unit filename="Sources\tinyxml.cpp" />
+		<Unit filename="Sources\tinyxml.h" />
+		<Unit filename="Sources\tinyxmlerror.cpp" />
+		<Unit filename="Sources\tinyxmlparser.cpp" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

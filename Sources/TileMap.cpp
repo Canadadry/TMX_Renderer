@@ -97,3 +97,25 @@ void TileMap::renderMap(sf::RenderWindow& window) const
 		}
 	}
 }
+
+int  TileMap::getWidth() const
+{
+	return m_width;
+}
+
+int  TileMap::getHeight() const
+{
+	return m_height;
+}
+
+int  TileMap::getTileWidth() const
+{
+	return m_tilewidth;
+}
+
+int  TileMap::getTileHeight() const
+{
+	return m_tileheight;
+}
+
+

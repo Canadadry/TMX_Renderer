@@ -1,8 +1,8 @@
 /*
- *  TileMap.h
+ *  const.h
  *  TMX_Renderer
  *
- *  Created by Canadadry on 15/12/10.
+ *  Created by mooglwy on 04/01/11.
  *
  *  This software is provided 'as-is', without any express or
  *  implied warranty. In no event will the authors be held
@@ -26,44 +26,33 @@
  *
  */
 
-#ifndef _TileMap_H_
-#define _TileMap_H_
+#ifndef _CONST_ 
+#define _CONST_
 
-#include <vector>
-#include <SFML/Graphics/Rect.hpp>
-
-namespace sf 
+enum SokobanTile
 {
-	class RenderWindow;
-}
-
-class Tile;
-class TileSet;
-class VectorTileSet;
-
-
-class TileMap
-{
-public:
-	TileMap(int width, int height, int tilewidth, int tileheight);
-	~TileMap();
-	void setLayer(const std::vector<int>& data,const VectorTileSet& tilesets,float opacity=1.0);
-	void setTile(int x, int y,int tile_id,const VectorTileSet& tilesets,float opacity=1.0);
-	void renderMap(sf::RenderWindow& window) const;
-	int  getWidth() const;
-	int  getHeight() const;
-	int  getTileWidth() const;
-	int  getTileHeight() const;
-	
-	
-private:
-	int m_width;
-	int m_height;
-	int m_tilewidth;
-	int m_tileheight;
-	Tile* m_layer;
+	VIDE			= 0,
+	MARIO_BAS		= 1,
+	MARIO_DROITE	= 2,
+	MARIO_GAUCHE	= 3,
+	MARIO_HAUT		= 4,
+	CAISSE			= 5,
+	CAISSE_OK		= 6,
+	OBJECTIF		= 7,
+	MUR				= 8
 };
 
-typedef std::vector<TileMap*> VectorTileMap;
+enum Direction
+{
+	BAS		= 0,
+	DROITE	= 1,
+	GAUCHE	= 2,
+	HAUT	= 3
+};
 
-#endif //end of TileMap
+const int TILE_SIZE					= 32;
+const int NB_BLOCS_LARGEUR			= 12;
+const int NB_BLOCS_HAUTEUR			= 12;
+const std::string LEVEL_FILENAME	= "levels.tmx";
+
+#endif _CONST_ //end of _CONST_

@@ -1,8 +1,8 @@
 /*
- *  TileMap.h
+ *  View.cpp
  *  TMX_Renderer
  *
- *  Created by Canadadry on 15/12/10.
+ *  Created by mooglwy on 04/01/11.
  *
  *  This software is provided 'as-is', without any express or
  *  implied warranty. In no event will the authors be held
@@ -25,45 +25,45 @@
  *     source distribution.
  *
  */
+#include "View.h"
+#include "const.h"
 
-#ifndef _TileMap_H_
-#define _TileMap_H_
-
-#include <vector>
-#include <SFML/Graphics/Rect.hpp>
-
-namespace sf 
+View::View()
+: m_map(new TileMap(NB_BLOCS_LARGEUR,NB_BLOCS_HAUTEUR,TILE_SIZE,TILE_SIZE))
+, m_tileset()
 {
-	class RenderWindow;
 }
 
-class Tile;
-class TileSet;
-class VectorTileSet;
-
-
-class TileMap
+View::~View()
 {
-public:
-	TileMap(int width, int height, int tilewidth, int tileheight);
-	~TileMap();
-	void setLayer(const std::vector<int>& data,const VectorTileSet& tilesets,float opacity=1.0);
-	void setTile(int x, int y,int tile_id,const VectorTileSet& tilesets,float opacity=1.0);
-	void renderMap(sf::RenderWindow& window) const;
-	int  getWidth() const;
-	int  getHeight() const;
-	int  getTileWidth() const;
-	int  getTileHeight() const;
-	
-	
-private:
-	int m_width;
-	int m_height;
-	int m_tilewidth;
-	int m_tileheight;
-	Tile* m_layer;
-};
+	delete m_map;
+}
 
-typedef std::vector<TileMap*> VectorTileMap;
+bool View::setTileset(const std::string& tileset_filename)
+{
+	sf::Image* image = new sf::Image;
+	if(!image.LoadFromFile(tileset_filename))
+	{
+		delete image;
+		return false;
+	}
+	TileSet tileset;
+	tileset.loadTileSet(image,1, TILE_SIZE, TILE_SIZE);
+	m_tileset[0] = tileset;
+	return true;
+}
 
-#endif //end of TileMap
+bool View::setId(int x,int y,SokobanTile tile)
+{
+	if(x>=0 && x<NB_BLOCS_LARGEUR && y>=0 && Y<NB_BLOCS_HAUTEUR)
+	{
+		m_map.setID(x,y,(int)tile,m_tileset);
+		return true;
+	}
+	return false;
+}
+
+void View::Draw(sf::RenderWindow& win) const
+{
+	m_map.renderMap(win);
+}

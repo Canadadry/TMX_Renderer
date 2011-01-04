@@ -10,10 +10,11 @@
 		6C05FC1912BD67B100E2BD3C /* ImageManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C05FC1812BD67B100E2BD3C /* ImageManager.cpp */; };
 		6C05FC2212BD694100E2BD3C /* TMXMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C05FC2112BD694100E2BD3C /* TMXMap.cpp */; };
 		6C05FC2712BD69D500E2BD3C /* InternalLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C05FC2612BD69D500E2BD3C /* InternalLoader.cpp */; };
-		6C3D581612BCB0EF00CD8FD0 /* Zelda.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D581412BCB0EF00CD8FD0 /* Zelda.png */; };
-		6C3D581712BCB0EF00CD8FD0 /* zelda.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D581512BCB0EF00CD8FD0 /* zelda.tmx */; };
+		6C33584912D10CAC00140918 /* sokoban.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C33584712D10CAC00140918 /* sokoban.png */; };
+		6C33584A12D10CAC00140918 /* levels.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 6C33584812D10CAC00140918 /* levels.tmx */; };
 		6C52E7E012CCF1800094BEE7 /* Tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C52E7DF12CCF1800094BEE7 /* Tile.cpp */; };
 		6C71B11E12BAA7E600D9D848 /* TMXLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C71B11C12BAA7E600D9D848 /* TMXLoader.cpp */; };
+		6C96DBF012D3A86C0030B0DA /* View.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C96DBEF12D3A86C0030B0DA /* View.cpp */; };
 		6CC44BBA12CB3FC30005F112 /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CC44BB712CB3FC30005F112 /* tinyxml.cpp */; };
 		6CC44BBB12CB3FC30005F112 /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CC44BB812CB3FC30005F112 /* tinyxmlerror.cpp */; };
 		6CC44BBC12CB3FC30005F112 /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CC44BB912CB3FC30005F112 /* tinyxmlparser.cpp */; };
@@ -52,12 +53,14 @@
 		6C05FC2112BD694100E2BD3C /* TMXMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TMXMap.cpp; path = Sources/TMXMap.cpp; sourceTree = "<group>"; };
 		6C05FC2512BD69D500E2BD3C /* InternalLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InternalLoader.h; path = Sources/InternalLoader.h; sourceTree = "<group>"; };
 		6C05FC2612BD69D500E2BD3C /* InternalLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = InternalLoader.cpp; path = Sources/InternalLoader.cpp; sourceTree = "<group>"; };
-		6C3D581412BCB0EF00CD8FD0 /* Zelda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Zelda.png; path = Data/Zelda.png; sourceTree = "<group>"; };
-		6C3D581512BCB0EF00CD8FD0 /* zelda.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = zelda.tmx; path = Data/zelda.tmx; sourceTree = "<group>"; };
+		6C33584712D10CAC00140918 /* sokoban.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sokoban.png; path = Data/sokoban.png; sourceTree = "<group>"; };
+		6C33584812D10CAC00140918 /* levels.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = levels.tmx; path = Data/levels.tmx; sourceTree = "<group>"; };
 		6C52E7DE12CCF1800094BEE7 /* Tile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tile.h; path = Sources/Tile.h; sourceTree = "<group>"; };
 		6C52E7DF12CCF1800094BEE7 /* Tile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Tile.cpp; path = Sources/Tile.cpp; sourceTree = "<group>"; };
 		6C71B11A12BAA7E600D9D848 /* TMXLoader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TMXLoader.hpp; path = Sources/TMXLoader.hpp; sourceTree = "<group>"; };
 		6C71B11C12BAA7E600D9D848 /* TMXLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TMXLoader.cpp; path = Sources/TMXLoader.cpp; sourceTree = "<group>"; };
+		6C96DBEE12D3A86C0030B0DA /* View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = View.h; path = Sources/View.h; sourceTree = "<group>"; };
+		6C96DBEF12D3A86C0030B0DA /* View.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = View.cpp; path = Sources/View.cpp; sourceTree = "<group>"; };
 		6CC44BB612CB3FC30005F112 /* tinyxml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tinyxml.h; path = Sources/tinyxml.h; sourceTree = "<group>"; };
 		6CC44BB712CB3FC30005F112 /* tinyxml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyxml.cpp; path = Sources/tinyxml.cpp; sourceTree = "<group>"; };
 		6CC44BB812CB3FC30005F112 /* tinyxmlerror.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyxmlerror.cpp; path = Sources/tinyxmlerror.cpp; sourceTree = "<group>"; };
@@ -67,6 +70,7 @@
 		6CD318DF12B95E6300668A74 /* TileSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TileSet.h; path = Sources/TileSet.h; sourceTree = "<group>"; };
 		6CD318E012B95E6300668A74 /* TileMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TileMap.cpp; path = Sources/TileMap.cpp; sourceTree = "<group>"; };
 		6CD318E112B95E6300668A74 /* TileSet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TileSet.cpp; path = Sources/TileSet.cpp; sourceTree = "<group>"; };
+		6CEBB68E12D3A1FE0087E898 /* const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = const.h; path = Sources/const.h; sourceTree = "<group>"; };
 		A01FB6A90F07CF6E000AAC7B /* TMX_Renderer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMX_Renderer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A01FB6CA0F07CFF2000AAC7B /* sfml-graphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-graphics.framework"; path = "/Library/Frameworks/sfml-graphics.framework"; sourceTree = "<absolute>"; };
 		A01FB6CB0F07CFF2000AAC7B /* sfml-system.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-system.framework"; path = "/Library/Frameworks/sfml-system.framework"; sourceTree = "<absolute>"; };
@@ -88,6 +92,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C33584412D0FADE00140918 /* LibTMX */ = {
+			isa = PBXGroup;
+			children = (
+				6C05FC2512BD69D500E2BD3C /* InternalLoader.h */,
+				6C05FC2612BD69D500E2BD3C /* InternalLoader.cpp */,
+				6CD318DF12B95E6300668A74 /* TileSet.h */,
+				6CD318E112B95E6300668A74 /* TileSet.cpp */,
+				6CD318DE12B95E6300668A74 /* TileMap.h */,
+				6CD318E012B95E6300668A74 /* TileMap.cpp */,
+				6C05FC2012BD694100E2BD3C /* TMXMap.h */,
+				6C05FC2112BD694100E2BD3C /* TMXMap.cpp */,
+				6C52E7DE12CCF1800094BEE7 /* Tile.h */,
+				6C52E7DF12CCF1800094BEE7 /* Tile.cpp */,
+			);
+			name = LibTMX;
+			sourceTree = "<group>";
+		};
+		6C33584612D0FAEE00140918 /* tinyXML */ = {
+			isa = PBXGroup;
+			children = (
+				6CC44BB612CB3FC30005F112 /* tinyxml.h */,
+				6CC44BB712CB3FC30005F112 /* tinyxml.cpp */,
+				6CC44BB812CB3FC30005F112 /* tinyxmlerror.cpp */,
+				6CC44BB912CB3FC30005F112 /* tinyxmlparser.cpp */,
+			);
+			name = tinyXML;
+			sourceTree = "<group>";
+		};
+		6CEBB68A12D3A0E60087E898 /* Sokoban */ = {
+			isa = PBXGroup;
+			children = (
+				6C96DBEE12D3A86C0030B0DA /* View.h */,
+				6C96DBEF12D3A86C0030B0DA /* View.cpp */,
+				6CEBB68E12D3A1FE0087E898 /* const.h */,
+			);
+			name = Sokoban;
+			sourceTree = "<group>";
+		};
 		A01FB69A0F07CF63000AAC7B = {
 			isa = PBXGroup;
 			children = (
@@ -120,8 +162,8 @@
 		A01FB6B10F07CF7C000AAC7B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				6C3D581412BCB0EF00CD8FD0 /* Zelda.png */,
-				6C3D581512BCB0EF00CD8FD0 /* zelda.tmx */,
+				6C33584712D10CAC00140918 /* sokoban.png */,
+				6C33584812D10CAC00140918 /* levels.tmx */,
 				6C01163612BAA3A7009884DD /* Info.plist */,
 			);
 			name = Resources;
@@ -130,25 +172,14 @@
 		A01FB6B20F07CF80000AAC7B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				6CC44BB612CB3FC30005F112 /* tinyxml.h */,
-				6CC44BB712CB3FC30005F112 /* tinyxml.cpp */,
-				6CC44BB812CB3FC30005F112 /* tinyxmlerror.cpp */,
-				6CC44BB912CB3FC30005F112 /* tinyxmlparser.cpp */,
-				6C05FC2512BD69D500E2BD3C /* InternalLoader.h */,
-				6C05FC2612BD69D500E2BD3C /* InternalLoader.cpp */,
+				6C33584612D0FAEE00140918 /* tinyXML */,
+				6C33584412D0FADE00140918 /* LibTMX */,
+				6CEBB68A12D3A0E60087E898 /* Sokoban */,
+				6CD318DC12B95E1C00668A74 /* main.cpp */,
 				6C05FC1712BD67B100E2BD3C /* ImageManager.hpp */,
 				6C05FC1812BD67B100E2BD3C /* ImageManager.cpp */,
 				6C71B11A12BAA7E600D9D848 /* TMXLoader.hpp */,
 				6C71B11C12BAA7E600D9D848 /* TMXLoader.cpp */,
-				6CD318DF12B95E6300668A74 /* TileSet.h */,
-				6CD318E112B95E6300668A74 /* TileSet.cpp */,
-				6CD318DE12B95E6300668A74 /* TileMap.h */,
-				6CD318E012B95E6300668A74 /* TileMap.cpp */,
-				6CD318DC12B95E1C00668A74 /* main.cpp */,
-				6C05FC2012BD694100E2BD3C /* TMXMap.h */,
-				6C05FC2112BD694100E2BD3C /* TMXMap.cpp */,
-				6C52E7DE12CCF1800094BEE7 /* Tile.h */,
-				6C52E7DF12CCF1800094BEE7 /* Tile.cpp */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -204,8 +235,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C3D581612BCB0EF00CD8FD0 /* Zelda.png in Resources */,
-				6C3D581712BCB0EF00CD8FD0 /* zelda.tmx in Resources */,
+				6C33584912D10CAC00140918 /* sokoban.png in Resources */,
+				6C33584A12D10CAC00140918 /* levels.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +258,7 @@
 				6CC44BBB12CB3FC30005F112 /* tinyxmlerror.cpp in Sources */,
 				6CC44BBC12CB3FC30005F112 /* tinyxmlparser.cpp in Sources */,
 				6C52E7E012CCF1800094BEE7 /* Tile.cpp in Sources */,
+				6C96DBF012D3A86C0030B0DA /* View.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
