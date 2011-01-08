@@ -41,6 +41,13 @@ struct Delete
 	} 
 };
 
+static sf::Vector2i v_dir[4]={sf::Vector2i(0,1),sf::Vector2i(1,0),sf::Vector2i(-1,0),sf::Vector2i(0,-1)};
+static SokobanTile  player_dir[4] = {MARIO_BAS,MARIO_DROITE,MARIO_GAUCHE,MARIO_HAUT};
+static int toId(const sf::Vector2i& v)
+{
+	return v.x+v.y*NB_BLOCS_LARGEUR;
+}
+
 static std::string toString(int i)
 {
 	std::ostringstream out;
@@ -63,6 +70,7 @@ Sokoban::Sokoban()
 , m_ispressedDir()
 , m_level(0)
 , m_max_level(0)
+, m_oldTile(VIDE)
 {
 	m_ispressedDir[HAUT  ] = false;
 	m_ispressedDir[BAS   ] = false;
@@ -76,7 +84,6 @@ Sokoban::~Sokoban()
 	if(m_loader!=NULL) delete m_loader;
 	if(m_tilemap!=NULL) delete m_tilemap;
 }
-
 
 bool Sokoban::loadLevels(const std::string& filename)
 {
@@ -113,6 +120,7 @@ bool Sokoban::loadLevels(const std::string& filename)
 		error("can't load any levels");
 		return false;
 	}
+	m_level = i;
 	
 	return true;
 }
@@ -123,11 +131,10 @@ void Sokoban::goNextLevel()
 	{
 		int i=m_level;
 		while((loadLevel((i++)%m_max_level)==false) && (i<m_max_level));
-		m_level = (i++)%m_max_level;
+		m_level = i%m_max_level;
 		m_tempo.Reset();
 	}
 }
-
 
 void Sokoban::handleEvent(sf::Event event)
 {
@@ -176,11 +183,9 @@ void Sokoban::update(double elpasedTime)
 		{
 			move(DROITE);
 		}
-		
 	}
-		
+	if(m_nb_objectif==0) goNextLevel();		
 }
-
 
 void Sokoban::render(sf::RenderWindow& window) const
 {
@@ -218,8 +223,8 @@ bool Sokoban::loadLevel(int level)
 				{
 					if(m_pos != sf::Vector2i(-1,-1))
 					{
-						m_data[m_pos.x+m_pos.y*NB_BLOCS_LARGEUR]=0;
-						setTile(VIDE, m_pos.x, m_pos.y);
+						m_data[toId(m_pos)]=0;
+						setTile(VIDE, m_pos);
 					}
 					m_pos.x = i;
 					m_pos.y = j;
@@ -251,90 +256,82 @@ bool Sokoban::loadLevel(int level)
 
 void Sokoban::move(Direction dir)
 {
-	switch (dir)
+	if(canMove(m_pos,dir))
 	{
-		case HAUT:
-		{
-			if(m_pos.y>0)
-			{
-				if (m_data[m_pos.x+(m_pos.y-1)*NB_BLOCS_LARGEUR] == VIDE)
-				{
-					m_data[m_pos.x+(m_pos.y-1)*NB_BLOCS_LARGEUR] = MARIO_HAUT;
-					m_data[m_pos.x+(m_pos.y  )*NB_BLOCS_LARGEUR] = VIDE;
-					setTile(MARIO_HAUT, m_pos.x, m_pos.y-1);
-					setTile(VIDE, m_pos.x, m_pos.y);
-					m_pos.y--;
-				}
-			}
-			break;
-		}
-		case BAS:
-		{
-			if(m_pos.y<(NB_BLOCS_HAUTEUR-1))
-			{
-				if (m_data[m_pos.x+(m_pos.y+1)*NB_BLOCS_LARGEUR] == VIDE)
-				{
-					m_data[m_pos.x+(m_pos.y+1)*NB_BLOCS_LARGEUR] = MARIO_BAS;
-					m_data[m_pos.x+(m_pos.y  )*NB_BLOCS_LARGEUR] = VIDE;
-					setTile(MARIO_BAS, m_pos.x, m_pos.y+1);
-					setTile(VIDE, m_pos.x, m_pos.y);
-					m_pos.y++;
-				}
-			}
-			break;
-		}
-		case DROITE:
-		{
-			if(m_pos.x<(NB_BLOCS_LARGEUR-1))
-			{
-				if (m_data[m_pos.x+1+m_pos.y*NB_BLOCS_LARGEUR] == VIDE)
-				{
-					m_data[m_pos.x+1+m_pos.y*NB_BLOCS_LARGEUR] = MARIO_DROITE;
-					m_data[m_pos.x  +m_pos.y*NB_BLOCS_LARGEUR] = VIDE;
-					setTile(MARIO_DROITE, m_pos.x+1, m_pos.y);
-					setTile(VIDE, m_pos.x, m_pos.y);
-					m_pos.x++;
-				}
-			}
-			break;
-		}
-		case GAUCHE:
-		{
-			if(m_pos.x>0)
-			{
-				if (m_data[m_pos.x-1+m_pos.y*NB_BLOCS_LARGEUR] == VIDE)
-				{
-					m_data[m_pos.x-1+m_pos.y*NB_BLOCS_LARGEUR] = MARIO_GAUCHE;
-					m_data[m_pos.x  +m_pos.y*NB_BLOCS_LARGEUR] = VIDE;
-					setTile(MARIO_GAUCHE, m_pos.x-1, m_pos.y);
-					setTile(VIDE, m_pos.x, m_pos.y);
-					m_pos.x--;
-				}
-			}
-			break;
-		}
+		moveJoueur(m_pos,dir);
 	}
+	else if( isBox(m_pos,dir) && canMove(m_pos+v_dir[dir],dir) )
+	{
+		moveCaisse(m_pos+v_dir[dir],dir);
+		moveJoueur(m_pos,dir);
+	}
+	else 
+	{
+		setTile(player_dir[dir], m_pos);
+	}
+
 	m_tempo.Reset();
 }
 
-bool Sokoban::canMove(int x,int y,Direction dir) const
+bool Sokoban::canMove(const sf::Vector2i pos,Direction dir) const
 {
+	if( ((pos+v_dir[dir]).y>=0) && ((pos+v_dir[dir]).y<NB_BLOCS_HAUTEUR) && ((pos+v_dir[dir]).x>=0) && ((pos+v_dir[dir]).x<NB_BLOCS_LARGEUR) )
+	{
+		if ((m_data[toId(pos+v_dir[dir])] == VIDE) || (m_data[toId(pos+v_dir[dir])] == OBJECTIF)) return true;
+	}
 	return false;
 }
 
-void Sokoban::moveCaisse(int x,int y,Direction dir)
+bool Sokoban::isBox(const sf::Vector2i pos,Direction dir) const
 {
-	
+	if( ((pos+v_dir[dir]).y>=0) && ((pos+v_dir[dir]).y<NB_BLOCS_HAUTEUR) && ((pos+v_dir[dir]).x>=0) && ((pos+v_dir[dir]).x<NB_BLOCS_LARGEUR) )
+	{
+		if ((m_data[toId(pos+v_dir[dir])] == CAISSE) || (m_data[toId(pos+v_dir[dir])] == CAISSE_OK)) return true;
+	}
+	return false;
 }
 
-void Sokoban::moveJoueur(int x,int y,Direction dir)
+
+void Sokoban::moveCaisse(const sf::Vector2i pos,Direction dir)
 {
-	
+	if(m_data[toId(pos)] == CAISSE_OK)
+	{
+		setTile(OBJECTIF , pos);
+		m_data[toId(pos)] = OBJECTIF;
+		m_nb_objectif++;
+	}
+	else if(m_data[toId(pos)] == CAISSE)
+	{
+		setTile(VIDE , pos);
+		m_data[toId(pos)] = VIDE;
+	}
+	if(m_data[toId(pos+v_dir[dir])] == VIDE)
+	{
+		setTile(CAISSE, pos+v_dir[dir]);
+		m_data[toId(pos+v_dir[dir])] = CAISSE;
+
+	}
+	else if(m_data[toId(pos+v_dir[dir])] == OBJECTIF)
+	{
+		setTile(CAISSE_OK, pos+v_dir[dir]);
+		m_data[toId(pos+v_dir[dir])] = CAISSE_OK;
+		m_nb_objectif--;
+	}
 }
 
-void Sokoban::setTile(SokobanTile tile, int x,int y)
+void Sokoban::moveJoueur(const sf::Vector2i pos,Direction dir)
 {
-	m_tilemap->setTile(x, y, tile, m_tileset,1);
+	setTile(m_oldTile , m_pos);
+	m_data[toId(m_pos)] = m_oldTile;
+	m_oldTile = (SokobanTile)m_data[toId(m_pos+v_dir[dir])];
+	setTile(player_dir[dir], m_pos+v_dir[dir]);
+	m_data[toId(m_pos+v_dir[dir])] = player_dir[dir];
+	m_pos+=v_dir[dir];
+}
+
+void Sokoban::setTile(SokobanTile tile,const sf::Vector2i pos)
+{
+	m_tilemap->setTile(pos.x, pos.y, tile, m_tileset,1);
 }
 
 void Sokoban::cleanLevel()

@@ -31,6 +31,7 @@
 
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Window/Event.hpp>
+#include <SFML/System/Vector2.hpp>
 #include "TileSet.h"
 #include <vector>
 #include <string>
@@ -62,14 +63,16 @@ private:
 	int                m_level;
 	int                m_max_level;
 	sf::Clock          m_tempo;
+	SokobanTile        m_oldTile;
 
 	bool loadLevel(int level);
 	
 	void move(Direction dir);
-	bool canMove(int x,int y,Direction dir) const;
-	void moveCaisse(int x,int y,Direction dir);
-	void moveJoueur(int x,int y,Direction dir);
-	void setTile(SokobanTile tile, int x,int y);
+	bool canMove(const sf::Vector2i pos,Direction dir) const;
+	bool isBox(const sf::Vector2i pos,Direction dir) const;
+	void moveCaisse(const sf::Vector2i pos,Direction dir);
+	void moveJoueur(const sf::Vector2i pos,Direction dir);
+	void setTile(SokobanTile tile,const sf::Vector2i pos);
 	
 	void cleanLevel();
 	void cleanAll();
