@@ -1,8 +1,8 @@
 /*
- *  TileMap.h
+ *  Sokoban.h
  *  TMX_Renderer
  *
- *  Created by Canadadry on 15/12/10.
+ *  Created by mooglwy on 07/01/11.
  *
  *  This software is provided 'as-is', without any express or
  *  implied warranty. In no event will the authors be held
@@ -26,43 +26,52 @@
  *
  */
 
-#ifndef _TileMap_H_
-#define _TileMap_H_
+#ifndef _Sokoban_H_
+#define _Sokoban_H_
 
-#include <vector>
-#include <SFML/Graphics/Rect.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Window/Event.hpp>
 #include "TileSet.h"
+#include <vector>
+#include <string>
 
-class Tile;
+class TMXLoader;
+class TileMap;
+enum Direction;
+enum SokobanTile;
 
-class TileMap
+class Sokoban
 {
 public:
-	TileMap(int width, int height, int tilewidth, int tileheight);
-	~TileMap();
-	void setLayer(const std::vector<int>& data,const VectorTileSet& tilesets,float opacity=1.0);
-	void setTile(int x, int y,int tile_id,const VectorTileSet& tilesets,float opacity=1.0);
-	void renderMap(sf::RenderWindow& window) const;
-	int  getWidth() const;
-	int  getHeight() const;
-	int  getTileWidth() const;
-	int  getTileHeight() const;
-	
-	
+	Sokoban();
+	~Sokoban();
+	bool loadLevels(const std::string& filename);
+	void goNextLevel();
+	void handleEvent(sf::Event event);
+	void update(double elpasedTime);
+	void render(sf::RenderWindow& window) const;
+
 private:
-	int m_width;
-	int m_height;
-	int m_tilewidth;
-	int m_tileheight;
-	Tile* m_layer;
+	TMXLoader*         m_loader;
+	VectorTileSet      m_tileset;
+	TileMap*           m_tilemap;
+	std::vector<int>   m_data;
+	int                m_nb_objectif;	
+	sf::Vector2i       m_pos;
+	bool               m_ispressedDir[4];
+
+
+	bool loadLevel(int level);
+	
+	void move(Direction dir);
+	bool canMove(int x,int y,Direction dir) const;
+	void moveCaisse(int x,int y,Direction dir);
+	void moveJoueur(int x,int y,Direction dir);
+	void setTile(SokobanTile tile, int x,int y);
+	
+	void cleanLevel();
+	void cleanAll();
+	
 };
 
-class VectorTileMap : public std::vector<TileMap*> 
-{
-public:
-	VectorTileMap();
-	~VectorTileMap();
-};
-
-#endif //end of TileMap
+#endif //end of Sokoban

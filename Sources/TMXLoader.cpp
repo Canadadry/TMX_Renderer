@@ -25,12 +25,12 @@
  *     source distribution.
  *
  */
-#include "ImageManager.hpp"
 #include "TMXLoader.hpp"
 #include "InternalLoader.h"
 #include "TMXMap.h"
 #include "TileSet.h"
 #include "TileMap.h"
+#include <SFML/Graphics/Image.hpp>
 
 #include <algorithm>
 #include <iostream>
@@ -64,7 +64,8 @@ bool TMXLoader::LoadFromFile(const std::string& filename)
 {
 	InternalLoader private_loader(filename);
 	m_map = private_loader.m_map;
-	m_tilesets = ExtractVectorTileSet();
+	m_tilesets = new VectorTileSet;
+	if(ExtractVectorTileSet(*m_tilesets)==false) return false;
 	return (m_map != NULL);
 }
 
@@ -95,46 +96,103 @@ TileMap* TMXLoader::ExtractLayerAsMap(const std::string& layerName) const
 	return NULL;
 }
 
-std::vector<TileMap*> TMXLoader::ExtractAsVectorMap() const
+bool TMXLoader::ExtractAsVectorMap(std::vector<TileMap*>& map) const
 {
-	if(m_map==NULL) return std::vector<TileMap*>();
+	if(m_map==NULL) return false;
+	if(m_map->layers.size()<=0) return false;
 	
-	VectorTileMap layers;
 	
 	for (int i = 0; i < m_map->layers.size(); i++)
 	{
 		TileMap* layer = new TileMap(m_map->width,m_map->height,m_map->tileWidth,m_map->tileHeight);
 		layer->setLayer(m_map->layers[i]->data,*m_tilesets,m_map->layers[i]->opacity);
-		layers.push_back(layer);
+		map.push_back(layer);
 	}
-	return layers;
+	return true;
 }
 
-VectorTileSet* TMXLoader::ExtractVectorTileSet() const
+int TMXLoader::getNbLayer() const
 {
-	if(m_map==NULL) return NULL;
-	if(m_tilesets!=NULL) return m_tilesets;
+	if(m_map==NULL) return 0;
+	return m_map->layers.size();
+}
 
-	VectorTileSet* tilesets = new VectorTileSet;
+int  TMXLoader::getWidth() const
+{
+	if(m_map==NULL) return 0;
+	return m_map->width;
+}
+
+int  TMXLoader::getHeight() const
+{
+	if(m_map==NULL) return 0;
+	return m_map->height;
+}
+
+int  TMXLoader::getTileWidth() const
+{
+	if(m_map==NULL) return 0;
+	return m_map->tileWidth;
+}
+
+int  TMXLoader::getTileHeight() const
+{
+	if(m_map==NULL) return 0;
+	return m_map->tileHeight;
+}
+
+bool TMXLoader::ExtractLayerAsData(int layer,std::vector<int>& data) const
+{
+	if(m_map==NULL) return false;
+	if( (layer <0) || (layer >= m_map->layers.size())) return false;
+	data =  m_map->layers[layer]->data;
+	return true;
+}
+
+bool TMXLoader::ExtractLayerAsData(const std::string& layerName,std::vector<int>& data) const
+{
+	if(m_map==NULL) return false;
+	
+	for (int i = 0; i < m_map->layers.size(); i++)
+	{
+		if(std::string(m_map->layers[i]->name)==layerName)
+		{
+			data =  m_map->layers[i]->data;
+			return true;
+		}
+	}
+	return false;
+}
+
+
+int TMXLoader::ExtractVectorTileSet(VectorTileSet& tilesets) const
+{
+	if(m_map==NULL) return 0;
+	if(m_map->tilesets.size()<=0) return 0; 
+	
+	int tileset_load = 0;
 	for (int i = 0; i < m_map->tilesets.size(); i++)
 	{
 		TileSet* tileset = new TileSet();
-		sf::Image* img = ImageManager::GetImage(m_map->tilesets[i]->sourceFileName);
-		if(img != NULL)
+		sf::Image* img = new sf::Image;
+		if(img->LoadFromFile(m_map->tilesets[i]->sourceFileName)==true)
 		{
+			img->SetSmooth(false);
 			tileset->loadTileSet(img,
 								 m_map->tilesets[i]->firtGlobalID,
 								 m_map->tilesets[i]->tileWidth,
 								 m_map->tilesets[i]->tileHeight);
 			
-			tilesets->push_back(tileset);
+			tilesets.push_back(tileset);
+			tileset_load ++;
 		}
 		else 
 		{
+			delete img;
 			delete tileset;
 		}
 	}
-	return tilesets;
+	return tileset_load;
 }
 
 

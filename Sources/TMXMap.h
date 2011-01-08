@@ -32,61 +32,63 @@
 #include <vector>
 #include <string>
 
-class TMXTileSet;
-class TMXLayer;
-class TMXProperty;
+	class TMXTileSet;
+	class TMXLayer;
+	class TMXProperty;
 
-class TMXMap
-{
-public:
-	TMXMap();
-	~TMXMap();
+	class TMXMap
+	{
+	public:
+		TMXMap();
+		~TMXMap();
+		
+		int width;
+		int height;
+		int tileWidth;
+		int tileHeight;
+		std::vector<TMXTileSet*> tilesets;
+		std::vector<TMXLayer*>   layers;
+		std::vector<TMXProperty*> properties;
+	};
+
+	class TMXTileSet
+	{
+	public:
+		TMXTileSet();
+		~TMXTileSet();
+		
+		int firtGlobalID;
+		std::string name;
+		std::string sourceFileName;
+		int tileWidth;
+		int tileHeight;
+		int spacing;
+		int margin;
+	};
+
+	class TMXLayer
+	{
+	public:
+		TMXLayer();
+		~TMXLayer();
+		std::string name;
+		float opacity;
+		int  visible;
+		std::vector<int> data;
+		std::vector<TMXProperty*> properties;
+	};
+
+	class TMXProperty
+	{
+	public:
+		TMXProperty();
+		~TMXProperty();
+		std::string name;
+		std::string value;
+		int intValue;
+		double doubleValue;
+	};
 	
-	int width;
-	int height;
-	int tileWidth;
-	int tileHeight;
-	std::vector<TMXTileSet*> tilesets;
-	std::vector<TMXLayer*>   layers;
-	std::vector<TMXProperty*> properties;
-};
 
-class TMXTileSet
-{
-public:
-	TMXTileSet();
-	~TMXTileSet();
-	
-	int firtGlobalID;
-	std::string name;
-	std::string sourceFileName;
-	int tileWidth;
-	int tileHeight;
-	int spacing;
-	int margin;
-};
-
-class TMXLayer
-{
-public:
-	TMXLayer();
-	~TMXLayer();
-	std::string name;
-	float opacity;
-	int  visible;
-	std::vector<int> data;
-	std::vector<TMXProperty*> properties;
-};
-
-class TMXProperty
-{
-public:
-	TMXProperty();
-	~TMXProperty();
-	std::string name;
-	std::string value;
-	int intValue;
-	double doubleValue;
-};
 
 #endif //end of TMXMap

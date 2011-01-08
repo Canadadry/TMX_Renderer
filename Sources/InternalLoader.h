@@ -31,33 +31,28 @@
 
 #include <string>
 #include <vector>
+#include "TMXMap.h"
 
-class TMXMap;
-class TMXTileSet;
-class TMXLayer;
-class TMXProperty;
-class TiXmlNode;
+	class TiXmlNode;
 
-class InternalLoader 
-{
-public:
-	InternalLoader(std::string filename = "");	
-	void LoadFromFile(std::string filename);
-	TMXMap* m_map;
-	
-private:
-	void readMap(TiXmlNode* node);
-	void readProperties(TiXmlNode* node, std::vector<TMXProperty*>& porperties);
-	TMXTileSet* readTileSet(TiXmlNode* node);
-	const char* readImage(TiXmlNode* node);
-	TMXLayer* readLayer(TiXmlNode* node);
-	void readData(TiXmlNode* node, std::vector<int>& data);
-	void readXML(TiXmlNode* node,std::vector<int>& data);
-	void readCSV(TiXmlNode* node,std::vector<int>& data);
-	void decodeblock( unsigned char* in, unsigned char* out );
-	void readBase64(TiXmlNode* node,const char* compression,std::vector<int>& data);
-};	
-
-
+	class InternalLoader 
+	{
+	public:
+		InternalLoader(std::string filename = "");	
+		void LoadFromFile(std::string filename);
+		TMXMap* m_map;
+		
+	private:
+		void readMap(TiXmlNode* node);
+		void readProperties(TiXmlNode* node, std::vector<TMXProperty*>& porperties);
+		TMXTileSet* readTileSet(TiXmlNode* node);
+		const char* readImage(TiXmlNode* node);
+		TMXLayer* readLayer(TiXmlNode* node);
+		void readData(TiXmlNode* node, std::vector<int>& data);
+		void readXML(TiXmlNode* node,std::vector<int>& data);
+		void readCSV(TiXmlNode* node,std::vector<int>& data);
+		void decodeblock( unsigned char* in, unsigned char* out );
+		void readBase64(TiXmlNode* node,const char* compression,std::vector<int>& data);
+	};	
 
 #endif //end of InternalLoader

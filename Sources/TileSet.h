@@ -32,11 +32,7 @@
 #include <string>
 #include <vector>
 #include <SFML/Graphics/Rect.hpp>
-
-namespace sf 
-{
-	class Image;
-}
+#include <SFML/Graphics/Image.hpp>
 
 class TileSet
 {
@@ -66,6 +62,7 @@ class VectorTileSet : public std::vector<TileSet*>
 {
 public:
 	VectorTileSet();
+	~VectorTileSet();
 	int getTileSetFromID(int id) const;
 	
 };

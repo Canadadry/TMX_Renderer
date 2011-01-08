@@ -25,16 +25,18 @@
  *     source distribution.
  *
  */
-#include "TileSet.h"
-#include <SFML/Graphics.hpp>
 
-//#define _LOG_
-#ifdef _LOG_
-#include <iostream>
-#define PRINT(...) printf(__VA_ARGS__)
-#else
-#define PRINT(...)
-#endif
+#include <algorithm>
+#include "TileSet.h"
+
+struct Delete 
+{ 
+	template <class T> void operator ()(T*& p) const 
+	{ 
+		delete p;
+		p = NULL;
+	} 
+};
 
 TileSet::TileSet()
 : m_image(NULL)
@@ -69,7 +71,7 @@ int TileSet::getFirstID() const
 
 int TileSet::getNumberOfTile() const
 {
-	m_numberOfTile;
+	return m_numberOfTile;
 }
 
 bool TileSet::containID(int id) const
@@ -87,7 +89,6 @@ sf::IntRect TileSet::getRectOfTile(int tileID) const
 	if(m_firstID < 1) return sf::IntRect(0,0,0,0);
 	int id_x = (tileID-m_firstID) % m_widthInTile;
 	int id_y = (tileID-m_firstID) / m_widthInTile;
-	PRINT("id:%d -> id_x:%d id_y:%d\n",tileID,id_x,id_y);
 	
 	return sf::IntRect(id_x*m_tilewidth,id_y*m_tileheight,(id_x+1)*m_tilewidth,(id_y+1)*m_tileheight);
 	
@@ -95,9 +96,12 @@ sf::IntRect TileSet::getRectOfTile(int tileID) const
 
 VectorTileSet::VectorTileSet()
 : std::vector<TileSet*>()
-{
-}
+{}
 
+VectorTileSet::~VectorTileSet()
+{
+	std::for_each(begin() , end(), Delete());
+}
 
 int VectorTileSet::getTileSetFromID(int id) const
 {

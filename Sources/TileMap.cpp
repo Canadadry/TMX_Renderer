@@ -26,13 +26,19 @@
  *
  */
 #include "TileMap.h"
-#include "TileSet.h"
 #include "Tile.h"
-#include "TMXLoader.hpp"
-#include <SFML/Graphics.hpp>
 
 #define MIN(a,b) (((a)<(b))?(a):(b))
 #define MAX(a,b) (((a)>(b))?(a):(b))
+
+struct Delete 
+{ 
+	template <class T> void operator ()(T*& p) const 
+	{ 
+		delete p;
+		p = NULL;
+	} 
+};
 
 TileMap::TileMap(int width, int height, int tilewidth, int tileheight)
 : m_width(width)
@@ -118,4 +124,12 @@ int  TileMap::getTileHeight() const
 	return m_tileheight;
 }
 
+VectorTileMap::VectorTileMap()
+: std::vector<TileMap*>()
+{
+}
 
+VectorTileMap::~VectorTileMap()
+{
+	std::for_each(begin() , end(), Delete());
+}

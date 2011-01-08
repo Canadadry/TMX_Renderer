@@ -29,6 +29,8 @@
 #ifndef _CONST_ 
 #define _CONST_
 
+#include <string>
+
 enum SokobanTile
 {
 	VIDE			= 0,
@@ -38,9 +40,12 @@ enum SokobanTile
 	MARIO_HAUT		= 4,
 	CAISSE			= 5,
 	CAISSE_OK		= 6,
-	OBJECTIF		= 7,
-	MUR				= 8
+	MUR				= 7,
+	OBJECTIF		= 8
+
 };
+
+const int NUMBER_TILES = 8; //VIDE doesn't count
 
 enum Direction
 {

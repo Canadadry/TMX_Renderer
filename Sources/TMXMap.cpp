@@ -28,68 +28,68 @@
 #include "TMXMap.h"
 #include <algorithm>
 
-struct Delete 
-{ 
-	template <class T> void operator ()(T*& p) const 
+
+	struct Delete 
 	{ 
-		delete p;
-		p = NULL;
-	} 
-};
+		template <class T> void operator ()(T*& p) const 
+		{ 
+			delete p;
+			p = NULL;
+		} 
+	};
 
-TMXMap::TMXMap()
-: width(0)
-, height(0)
-, tileWidth(0)
-, tileHeight(0)
-, tilesets()
-, layers()
-, properties()
-{}
+	TMXMap::TMXMap()
+	: width(0)
+	, height(0)
+	, tileWidth(0)
+	, tileHeight(0)
+	, tilesets()
+	, layers()
+	, properties()
+	{}
 
-TMXMap::~TMXMap()
-{
-	std::for_each(layers.begin()     , layers.end()     , Delete());
-	std::for_each(tilesets.begin()   , tilesets.end()   , Delete());
-	std::for_each(properties.begin() , properties.end() , Delete());
-}
+	TMXMap::~TMXMap()
+	{
+		std::for_each(layers.begin()     , layers.end()     , Delete());
+		std::for_each(tilesets.begin()   , tilesets.end()   , Delete());
+		std::for_each(properties.begin() , properties.end() , Delete());
+	}
 
-TMXTileSet::TMXTileSet()
-: firtGlobalID(1)
-, name("")
-, sourceFileName("")
-, tileWidth(0)
-, tileHeight(0)
-, spacing(0)
-, margin(0)
-{}
+	TMXTileSet::TMXTileSet()
+	: firtGlobalID(1)
+	, name("")
+	, sourceFileName("")
+	, tileWidth(0)
+	, tileHeight(0)
+	, spacing(0)
+	, margin(0)
+	{}
 
-TMXTileSet::~TMXTileSet()
-{
-}
+	TMXTileSet::~TMXTileSet()
+	{
+	}
 
-TMXLayer::TMXLayer()
-: name("")
-, opacity(1.0)
-, visible(1)
-, data()
-, properties()
-{}
+	TMXLayer::TMXLayer()
+	: name("")
+	, opacity(1.0)
+	, visible(1)
+	, data()
+	, properties()
+	{}
 
-TMXLayer::~TMXLayer()	
-{
-	std::for_each(properties.begin() , properties.end() , Delete());
-}
+	TMXLayer::~TMXLayer()	
+	{
+		std::for_each(properties.begin() , properties.end() , Delete());
+	}
 
-TMXProperty::TMXProperty()
-: name("")
-, value("")
-, intValue(0)
-, doubleValue(0.0)
-{
-}
+	TMXProperty::TMXProperty()
+	: name("")
+	, value("")
+	, intValue(0)
+	, doubleValue(0.0)
+	{
+	}
 
-TMXProperty::~TMXProperty()
-{
-}
-
+	TMXProperty::~TMXProperty()
+	{
+	}
