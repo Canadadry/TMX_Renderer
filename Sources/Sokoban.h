@@ -59,7 +59,9 @@ private:
 	int                m_nb_objectif;	
 	sf::Vector2i       m_pos;
 	bool               m_ispressedDir[4];
-
+	int                m_level;
+	int                m_max_level;
+	sf::Clock          m_tempo;
 
 	bool loadLevel(int level);
 	

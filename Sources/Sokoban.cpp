@@ -61,11 +61,14 @@ Sokoban::Sokoban()
 , m_nb_objectif(0)
 , m_pos(-1,-1)
 , m_ispressedDir()
+, m_level(0)
+, m_max_level(0)
 {
 	m_ispressedDir[HAUT  ] = false;
 	m_ispressedDir[BAS   ] = false;
 	m_ispressedDir[GAUCHE] = false;
 	m_ispressedDir[DROITE] = false;
+	m_tempo.Reset();
 }
 
 Sokoban::~Sokoban()
@@ -97,8 +100,8 @@ bool Sokoban::loadLevels(const std::string& filename)
 		error("Number of Tile don't match there must be: " + toString(NUMBER_TILES) + " and there are :" + toString(m_tileset[0]->getNumberOfTile()));
 		return false;
 	}
-	
-	if(m_loader->getNbLayer()<=0)
+	m_max_level = m_loader->getNbLayer();
+	if(m_max_level<=0)
 	{
 		error("Must have at least one level");
 		return false;
@@ -116,7 +119,13 @@ bool Sokoban::loadLevels(const std::string& filename)
 
 void Sokoban::goNextLevel()
 {
-	
+	if(m_tempo.GetElapsedTime()>0.5)
+	{
+		int i=m_level;
+		while((loadLevel((i++)%m_max_level)==false) && (i<m_max_level));
+		m_level = (i++)%m_max_level;
+		m_tempo.Reset();
+	}
 }
 
 
@@ -126,11 +135,11 @@ void Sokoban::handleEvent(sf::Event event)
 	{
 		switch(event.Key.Code)
 		{
-			case sf::Key::Up    : m_ispressedDir[HAUT  ] = true;
-			case sf::Key::Down  : m_ispressedDir[BAS   ] = true;
-			case sf::Key::Left  : m_ispressedDir[GAUCHE] = true;
-			case sf::Key::Right : m_ispressedDir[DROITE] = true;
-			case sf::Key::Space : goNextLevel();
+			case sf::Key::Up    : m_ispressedDir[HAUT  ] = true;break;
+			case sf::Key::Down  : m_ispressedDir[BAS   ] = true;break;
+			case sf::Key::Left  : m_ispressedDir[GAUCHE] = true;break;
+			case sf::Key::Right : m_ispressedDir[DROITE] = true;break;
+			case sf::Key::Space : goNextLevel();break;
 			default: ;//nothing for the rest
 		}
 	}
@@ -138,11 +147,10 @@ void Sokoban::handleEvent(sf::Event event)
 	{
 		switch(event.Key.Code)
 		{
-			case sf::Key::Up    : m_ispressedDir[HAUT  ] = false;
-			case sf::Key::Down  : m_ispressedDir[BAS   ] = false;
-			case sf::Key::Left  : m_ispressedDir[GAUCHE] = false;
-			case sf::Key::Right : m_ispressedDir[DROITE] = false;
-			case sf::Key::Space : goNextLevel();
+			case sf::Key::Up    : m_ispressedDir[HAUT  ] = false;break;
+			case sf::Key::Down  : m_ispressedDir[BAS   ] = false;break;
+			case sf::Key::Left  : m_ispressedDir[GAUCHE] = false;break;
+			case sf::Key::Right : m_ispressedDir[DROITE] = false;break;
 			default: ;//nothing for the rest
 		}
 	}
@@ -150,22 +158,27 @@ void Sokoban::handleEvent(sf::Event event)
 
 void Sokoban::update(double elpasedTime)
 {
-	if(m_ispressedDir[HAUT])
+	if(m_tempo.GetElapsedTime()>0.3)
 	{
-		move(HAUT);
-	}	
-	else if(m_ispressedDir[BAS])
-	{
-		move(BAS);
+		if(m_ispressedDir[HAUT])
+		{
+			move(HAUT);
+		}	
+		else if(m_ispressedDir[BAS])
+		{
+			move(BAS);
+		}
+		else if(m_ispressedDir[GAUCHE])
+		{
+			move(GAUCHE);
+		}
+		else if(m_ispressedDir[DROITE])
+		{
+			move(DROITE);
+		}
+		
 	}
-	else if(m_ispressedDir[GAUCHE])
-	{
-		move(GAUCHE);
-	}
-	else if(m_ispressedDir[DROITE])
-	{
-		move(DROITE);
-	}
+		
 }
 
 
@@ -300,8 +313,8 @@ void Sokoban::move(Direction dir)
 			}
 			break;
 		}
-			
 	}
+	m_tempo.Reset();
 }
 
 bool Sokoban::canMove(int x,int y,Direction dir) const
@@ -344,4 +357,6 @@ void Sokoban::cleanAll()
 	std::for_each(m_tileset.begin() ,m_tileset.end(), Delete());
 	if(m_loader!=NULL) delete m_loader;
 	m_loader = NULL;
+	m_level = 0;
+	m_max_level = 0;
 }
