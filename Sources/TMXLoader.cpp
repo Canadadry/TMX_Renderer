@@ -62,6 +62,9 @@ TMXLoader::~TMXLoader()
 
 bool TMXLoader::LoadFromFile(const std::string& filename)
 {
+	if(m_map!=NULL) delete m_map;
+	if(m_tilesets!=NULL) delete m_tilesets;
+	
 	InternalLoader private_loader(filename);
 	m_map = private_loader.m_map;
 	m_tilesets = new VectorTileSet;

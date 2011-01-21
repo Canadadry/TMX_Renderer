@@ -114,9 +114,9 @@ bool Sokoban::loadLevels(const std::string& filename)
 		return false;
 	}
 	int i=0;
-	while ((loadLevel(i++)==false) && (i<m_loader->getNbLayer()));
+	while ((loadLevel(i)==false) && (i<m_loader->getNbLayer()))i++;
 	if (i==m_loader->getNbLayer())
-	{
+	{   
 		error("can't load any levels");
 		return false;
 	}
@@ -129,8 +129,8 @@ void Sokoban::goNextLevel()
 {
 	if(m_tempo.GetElapsedTime()>0.5)
 	{
-		int i=m_level;
-		while((loadLevel((i++)%m_max_level)==false) && (i<m_max_level));
+		int i=m_level+1;
+		while(loadLevel((i)%m_max_level)==false) i++;
 		m_level = i%m_max_level;
 		m_tempo.Reset();
 	}
@@ -146,7 +146,8 @@ void Sokoban::handleEvent(sf::Event event)
 			case sf::Key::Down  : m_ispressedDir[BAS   ] = true;break;
 			case sf::Key::Left  : m_ispressedDir[GAUCHE] = true;break;
 			case sf::Key::Right : m_ispressedDir[DROITE] = true;break;
-			case sf::Key::Space : goNextLevel();break;
+			case sf::Key::Space : goNextLevel();                break;
+			case sf::Key::Return: loadLevel(m_level);           break;
 			default: ;//nothing for the rest
 		}
 	}
@@ -165,6 +166,7 @@ void Sokoban::handleEvent(sf::Event event)
 
 void Sokoban::update(double elpasedTime)
 {
+	if(m_nb_objectif==0) goNextLevel();		
 	if(m_tempo.GetElapsedTime()>0.3)
 	{
 		if(m_ispressedDir[HAUT])
@@ -184,7 +186,6 @@ void Sokoban::update(double elpasedTime)
 			move(DROITE);
 		}
 	}
-	if(m_nb_objectif==0) goNextLevel();		
 }
 
 void Sokoban::render(sf::RenderWindow& window) const

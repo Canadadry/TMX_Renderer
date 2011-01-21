@@ -14,6 +14,7 @@
 		6C33584A12D10CAC00140918 /* levels.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 6C33584812D10CAC00140918 /* levels.tmx */; };
 		6C52E7E012CCF1800094BEE7 /* Tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C52E7DF12CCF1800094BEE7 /* Tile.cpp */; };
 		6C71B11E12BAA7E600D9D848 /* TMXLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C71B11C12BAA7E600D9D848 /* TMXLoader.cpp */; };
+		6C8445E512D9CE91006B37E6 /* Sokoban.icns in Resources */ = {isa = PBXBuildFile; fileRef = 6C8445E412D9CE91006B37E6 /* Sokoban.icns */; };
 		6CC44BBA12CB3FC30005F112 /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CC44BB712CB3FC30005F112 /* tinyxml.cpp */; };
 		6CC44BBB12CB3FC30005F112 /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CC44BB812CB3FC30005F112 /* tinyxmlerror.cpp */; };
 		6CC44BBC12CB3FC30005F112 /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CC44BB912CB3FC30005F112 /* tinyxmlparser.cpp */; };
@@ -58,6 +59,7 @@
 		6C52E7DF12CCF1800094BEE7 /* Tile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Tile.cpp; path = Sources/Tile.cpp; sourceTree = "<group>"; };
 		6C71B11A12BAA7E600D9D848 /* TMXLoader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TMXLoader.hpp; path = Sources/TMXLoader.hpp; sourceTree = "<group>"; };
 		6C71B11C12BAA7E600D9D848 /* TMXLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TMXLoader.cpp; path = Sources/TMXLoader.cpp; sourceTree = "<group>"; };
+		6C8445E412D9CE91006B37E6 /* Sokoban.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Sokoban.icns; path = Data/Sokoban.icns; sourceTree = "<group>"; };
 		6CC44BB612CB3FC30005F112 /* tinyxml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tinyxml.h; path = Sources/tinyxml.h; sourceTree = "<group>"; };
 		6CC44BB712CB3FC30005F112 /* tinyxml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyxml.cpp; path = Sources/tinyxml.cpp; sourceTree = "<group>"; };
 		6CC44BB812CB3FC30005F112 /* tinyxmlerror.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyxmlerror.cpp; path = Sources/tinyxmlerror.cpp; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 		A01FB6B10F07CF7C000AAC7B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6C8445E412D9CE91006B37E6 /* Sokoban.icns */,
 				6C33584712D10CAC00140918 /* sokoban.png */,
 				6C33584812D10CAC00140918 /* levels.tmx */,
 				6C01163612BAA3A7009884DD /* Info.plist */,
@@ -240,6 +243,7 @@
 			files = (
 				6C33584912D10CAC00140918 /* sokoban.png in Resources */,
 				6C33584A12D10CAC00140918 /* levels.tmx in Resources */,
+				6C8445E512D9CE91006B37E6 /* Sokoban.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

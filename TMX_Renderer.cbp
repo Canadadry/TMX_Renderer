@@ -29,10 +29,13 @@
 			<Add option="-lsfml-window" />
 			<Add option="-lsfml-system" />
 		</Linker>
-		<Unit filename="Sources\ImageManager.cpp" />
-		<Unit filename="Sources\ImageManager.hpp" />
+		<Unit filename="Data\ressources.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
 		<Unit filename="Sources\InternalLoader.cpp" />
 		<Unit filename="Sources\InternalLoader.h" />
+		<Unit filename="Sources\Sokoban.cpp" />
+		<Unit filename="Sources\Sokoban.h" />
 		<Unit filename="Sources\TMXLoader.cpp" />
 		<Unit filename="Sources\TMXLoader.hpp" />
 		<Unit filename="Sources\TMXMap.cpp" />
@@ -43,6 +46,7 @@
 		<Unit filename="Sources\TileMap.h" />
 		<Unit filename="Sources\TileSet.cpp" />
 		<Unit filename="Sources\TileSet.h" />
+		<Unit filename="Sources\const.h" />
 		<Unit filename="Sources\main.cpp" />
 		<Unit filename="Sources\tinyxml.cpp" />
 		<Unit filename="Sources\tinyxml.h" />
