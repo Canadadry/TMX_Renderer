@@ -1,8 +1,8 @@
 /*
- *  View.h
+ *  AStarGraph.h
  *  TMX_Renderer
  *
- *  Created by mooglwy on 04/01/11.
+ *  Created by mooglwy on 21/01/11.
  *
  *  This software is provided 'as-is', without any express or
  *  implied warranty. In no event will the authors be held
@@ -26,25 +26,36 @@
  *
  */
 
-#ifndef _View_H_
-#define _View_H_
+#ifndef _AStarGraph_H_
+#define _AStarGraph_H_
 
-#include <SFML/Graphics/RenderWindow.hpp>
+#include "micropather.h"
+#include <vector>
+#include <SFML/System/Vector2.hpp>
 
-enum SokobanTile;
 
-class View
+class AStarGraph : public micropather::Graph
 {
 public:
-	View();
-	~View();
-	bool setTileset(const std::string& tileset_filename);
-	bool setId(int x,int y,SokobanTile tile);
-	void Draw(const sf::RenderWindow& win) const;
+	AStarGraph(const std::vector<int>& vec,int width,int height);
+	~AStarGraph();
 
+	float LeastCostEstimate( void* stateStart, void* stateEnd );
+	void AdjacentCost( void* state, std::vector< micropather::StateCost > *adjacent );
+	void PrintStateInfo( void* state );
+	bool Solve(sf::Vector2i start,sf::Vector2i end,std::vector<sf::Vector2i>& path);
+	void DataHaschange();
+	
 private:
-	TileMap* m_map;
-	std::vector<TileSet> m_tileset;
+	const std::vector<int>& m_data;
+	const int m_width;
+	const int m_height;
+	
+	micropather::MicroPather* m_solver;
+
+	sf::Vector2i stateToPosition(void*        state) const;
+	void*        positionToState(sf::Vector2i pos  ) const;
+
 };
 
-#endif //end of View
+#endif //end of AStarGraph

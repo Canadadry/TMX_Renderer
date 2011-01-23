@@ -12,8 +12,10 @@
 		6C05FC2712BD69D500E2BD3C /* InternalLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C05FC2612BD69D500E2BD3C /* InternalLoader.cpp */; };
 		6C33584912D10CAC00140918 /* sokoban.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C33584712D10CAC00140918 /* sokoban.png */; };
 		6C33584A12D10CAC00140918 /* levels.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 6C33584812D10CAC00140918 /* levels.tmx */; };
+		6C39D4AF12EC6983009C3C24 /* AStarGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C39D4AE12EC6983009C3C24 /* AStarGraph.cpp */; };
 		6C52E7E012CCF1800094BEE7 /* Tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C52E7DF12CCF1800094BEE7 /* Tile.cpp */; };
 		6C71B11E12BAA7E600D9D848 /* TMXLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C71B11C12BAA7E600D9D848 /* TMXLoader.cpp */; };
+		6C7A1EEC12EA2F9400A1370F /* micropather.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C7A1EEB12EA2F9400A1370F /* micropather.cpp */; };
 		6C8445E512D9CE91006B37E6 /* Sokoban.icns in Resources */ = {isa = PBXBuildFile; fileRef = 6C8445E412D9CE91006B37E6 /* Sokoban.icns */; };
 		6CC44BBA12CB3FC30005F112 /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CC44BB712CB3FC30005F112 /* tinyxml.cpp */; };
 		6CC44BBB12CB3FC30005F112 /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CC44BB812CB3FC30005F112 /* tinyxmlerror.cpp */; };
@@ -55,10 +57,14 @@
 		6C05FC2612BD69D500E2BD3C /* InternalLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = InternalLoader.cpp; path = Sources/InternalLoader.cpp; sourceTree = "<group>"; };
 		6C33584712D10CAC00140918 /* sokoban.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sokoban.png; path = Data/sokoban.png; sourceTree = "<group>"; };
 		6C33584812D10CAC00140918 /* levels.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = levels.tmx; path = Data/levels.tmx; sourceTree = "<group>"; };
+		6C39D4AD12EC6983009C3C24 /* AStarGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AStarGraph.h; path = Sources/AStarGraph.h; sourceTree = "<group>"; };
+		6C39D4AE12EC6983009C3C24 /* AStarGraph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AStarGraph.cpp; path = Sources/AStarGraph.cpp; sourceTree = "<group>"; };
 		6C52E7DE12CCF1800094BEE7 /* Tile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tile.h; path = Sources/Tile.h; sourceTree = "<group>"; };
 		6C52E7DF12CCF1800094BEE7 /* Tile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Tile.cpp; path = Sources/Tile.cpp; sourceTree = "<group>"; };
 		6C71B11A12BAA7E600D9D848 /* TMXLoader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TMXLoader.hpp; path = Sources/TMXLoader.hpp; sourceTree = "<group>"; };
 		6C71B11C12BAA7E600D9D848 /* TMXLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TMXLoader.cpp; path = Sources/TMXLoader.cpp; sourceTree = "<group>"; };
+		6C7A1EEA12EA2F9400A1370F /* micropather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = micropather.h; path = Sources/micropather.h; sourceTree = "<group>"; };
+		6C7A1EEB12EA2F9400A1370F /* micropather.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = micropather.cpp; path = Sources/micropather.cpp; sourceTree = "<group>"; };
 		6C8445E412D9CE91006B37E6 /* Sokoban.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Sokoban.icns; path = Data/Sokoban.icns; sourceTree = "<group>"; };
 		6CC44BB612CB3FC30005F112 /* tinyxml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tinyxml.h; path = Sources/tinyxml.h; sourceTree = "<group>"; };
 		6CC44BB712CB3FC30005F112 /* tinyxml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyxml.cpp; path = Sources/tinyxml.cpp; sourceTree = "<group>"; };
@@ -129,9 +135,20 @@
 			name = tinyXML;
 			sourceTree = "<group>";
 		};
+		6C7A1EE912EA2F8000A1370F /* MicroPather */ = {
+			isa = PBXGroup;
+			children = (
+				6C7A1EEA12EA2F9400A1370F /* micropather.h */,
+				6C7A1EEB12EA2F9400A1370F /* micropather.cpp */,
+			);
+			name = MicroPather;
+			sourceTree = "<group>";
+		};
 		6CEBB68A12D3A0E60087E898 /* Sokoban */ = {
 			isa = PBXGroup;
 			children = (
+				6C39D4AD12EC6983009C3C24 /* AStarGraph.h */,
+				6C39D4AE12EC6983009C3C24 /* AStarGraph.cpp */,
 				6CEBB68E12D3A1FE0087E898 /* const.h */,
 				6C014C3E12D7B6EC0052B2D9 /* Sokoban.h */,
 				6C014C3F12D7B6EC0052B2D9 /* Sokoban.cpp */,
@@ -182,6 +199,7 @@
 		A01FB6B20F07CF80000AAC7B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				6C7A1EE912EA2F8000A1370F /* MicroPather */,
 				6C33584612D0FAEE00140918 /* tinyXML */,
 				6C33584412D0FADE00140918 /* LibTMX */,
 				6CEBB68A12D3A0E60087E898 /* Sokoban */,
@@ -265,6 +283,8 @@
 				6CC44BBC12CB3FC30005F112 /* tinyxmlparser.cpp in Sources */,
 				6C52E7E012CCF1800094BEE7 /* Tile.cpp in Sources */,
 				6C014C4012D7B6EC0052B2D9 /* Sokoban.cpp in Sources */,
+				6C7A1EEC12EA2F9400A1370F /* micropather.cpp in Sources */,
+				6C39D4AF12EC6983009C3C24 /* AStarGraph.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

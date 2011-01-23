@@ -34,7 +34,9 @@
 #include <SFML/System/Vector2.hpp>
 #include "TileSet.h"
 #include <vector>
+#include <queue>
 #include <string>
+#include "AStarGraph.h"
 
 class TMXLoader;
 class TileMap;
@@ -64,7 +66,9 @@ private:
 	int                m_max_level;
 	sf::Clock          m_tempo;
 	SokobanTile        m_oldTile;
-
+	
+	AStarGraph*           m_pather;
+	std::queue<Direction> m_path;
 	bool loadLevel(int level);
 	
 	void move(Direction dir);

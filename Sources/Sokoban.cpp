@@ -48,6 +48,11 @@ static int toId(const sf::Vector2i& v)
 	return v.x+v.y*NB_BLOCS_LARGEUR;
 }
 
+static double norme(sf::Vector2i vect)
+{
+	return sqrt(vect.x*vect.x+vect.y*vect.y);
+}
+
 static std::string toString(int i)
 {
 	std::ostringstream out;
@@ -71,6 +76,8 @@ Sokoban::Sokoban()
 , m_level(0)
 , m_max_level(0)
 , m_oldTile(VIDE)
+, m_pather(NULL)
+, m_path()
 {
 	m_ispressedDir[HAUT  ] = false;
 	m_ispressedDir[BAS   ] = false;
@@ -83,6 +90,7 @@ Sokoban::~Sokoban()
 {
 	if(m_loader!=NULL) delete m_loader;
 	if(m_tilemap!=NULL) delete m_tilemap;
+	if(m_pather!=NULL) delete m_pather;
 }
 
 bool Sokoban::loadLevels(const std::string& filename)
@@ -162,6 +170,39 @@ void Sokoban::handleEvent(sf::Event event)
 			default: ;//nothing for the rest
 		}
 	}
+	else if (event.Type == sf::Event::MouseButtonPressed)
+	{
+		if(event.MouseButton.Button == sf::Mouse::Left)
+		{
+			if(m_path.size() ==0)
+			{
+				sf::Vector2i dest(event.MouseButton.X/TILE_SIZE,event.MouseButton.Y/TILE_SIZE);
+				std::vector<sf::Vector2i> path;
+
+				if(v_dir[HAUT] == dest - m_pos) m_path.push(HAUT);
+				else if(v_dir[BAS] == dest - m_pos) m_path.push(BAS);
+				else if(v_dir[GAUCHE] == dest - m_pos) m_path.push(GAUCHE);
+				else if(v_dir[DROITE] == dest - m_pos) m_path.push(DROITE);
+				else 
+				{
+					m_pather->Solve(m_pos,dest,path);
+					printf("from (%d,%d) to (%d,%d)\n",m_pos.x,m_pos.y,dest.x,dest.y);
+					for (int i =1; i<(int)path.size(); i++)
+					{
+						printf("x:%d y:%d\n",path[i].x,path[i].y);
+						if(v_dir[HAUT] == path[i] -path[i-1]) m_path.push(HAUT);
+						else if(v_dir[BAS] == path[i] -path[i-1]) m_path.push(BAS);
+						else if(v_dir[GAUCHE] == path[i] -path[i-1]) m_path.push(GAUCHE);
+						else if(v_dir[DROITE] == path[i] -path[i-1]) m_path.push(DROITE);
+						
+					}
+					printf("\n");
+										
+				}
+
+			}
+		}
+	}
 }
 
 void Sokoban::update(double elpasedTime)
@@ -169,6 +210,11 @@ void Sokoban::update(double elpasedTime)
 	if(m_nb_objectif==0) goNextLevel();		
 	if(m_tempo.GetElapsedTime()>0.3)
 	{
+		if(m_path.size() != 0)
+		{
+			move(m_path.front());
+			m_path.pop();
+		}	
 		if(m_ispressedDir[HAUT])
 		{
 			move(HAUT);
@@ -252,6 +298,8 @@ bool Sokoban::loadLevel(int level)
 		error("No start position found");
 		return false;
 	}
+	
+	m_pather = new AStarGraph(m_data,NB_BLOCS_LARGEUR,NB_BLOCS_HAUTEUR);
 	return true;
 }
 
@@ -260,11 +308,13 @@ void Sokoban::move(Direction dir)
 	if(canMove(m_pos,dir))
 	{
 		moveJoueur(m_pos,dir);
+		m_pather->DataHaschange();
 	}
 	else if( isBox(m_pos,dir) && canMove(m_pos+v_dir[dir],dir) )
 	{
 		moveCaisse(m_pos+v_dir[dir],dir);
 		moveJoueur(m_pos,dir);
+		m_pather->DataHaschange();
 	}
 	else 
 	{
@@ -291,7 +341,6 @@ bool Sokoban::isBox(const sf::Vector2i pos,Direction dir) const
 	}
 	return false;
 }
-
 
 void Sokoban::moveCaisse(const sf::Vector2i pos,Direction dir)
 {
@@ -346,8 +395,9 @@ void Sokoban::cleanLevel()
 	m_ispressedDir[BAS   ] = false;
 	m_ispressedDir[GAUCHE] = false;
 	m_ispressedDir[DROITE] = false;
+	if(m_pather!= NULL) delete m_pather;
+	m_pather = NULL;
 }
-
 
 void Sokoban::cleanAll()
 {
