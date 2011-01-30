@@ -3,7 +3,7 @@
  <tileset firstgid="1" name="sokoban" tilewidth="32" tileheight="32">
   <image source="sokoban.png" width="128" height="64"/>
  </tileset>
- <layer name="Niveaux 1" width="12" height="12">
+ <layer name="set" width="12" height="12">
   <data encoding="csv">
 7,7,7,7,7,7,7,7,7,7,7,7,
 7,7,7,7,7,7,7,7,7,7,7,7,

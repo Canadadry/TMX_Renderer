@@ -66,6 +66,7 @@ private:
 	int                m_max_level;
 	sf::Clock          m_tempo;
 	SokobanTile        m_oldTile;
+	Tile*              m_playerTile;
 	
 	AStarGraph*           m_pather;
 	std::queue<Direction> m_path;

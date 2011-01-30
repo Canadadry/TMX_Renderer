@@ -7,22 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6C014C4012D7B6EC0052B2D9 /* Sokoban.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C014C3F12D7B6EC0052B2D9 /* Sokoban.cpp */; };
-		6C05FC2212BD694100E2BD3C /* TMXMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C05FC2112BD694100E2BD3C /* TMXMap.cpp */; };
-		6C05FC2712BD69D500E2BD3C /* InternalLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C05FC2612BD69D500E2BD3C /* InternalLoader.cpp */; };
 		6C33584912D10CAC00140918 /* sokoban.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C33584712D10CAC00140918 /* sokoban.png */; };
 		6C33584A12D10CAC00140918 /* levels.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 6C33584812D10CAC00140918 /* levels.tmx */; };
-		6C39D4AF12EC6983009C3C24 /* AStarGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C39D4AE12EC6983009C3C24 /* AStarGraph.cpp */; };
-		6C52E7E012CCF1800094BEE7 /* Tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C52E7DF12CCF1800094BEE7 /* Tile.cpp */; };
-		6C71B11E12BAA7E600D9D848 /* TMXLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C71B11C12BAA7E600D9D848 /* TMXLoader.cpp */; };
-		6C7A1EEC12EA2F9400A1370F /* micropather.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C7A1EEB12EA2F9400A1370F /* micropather.cpp */; };
+		6C4339F012F5F196008BF334 /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C4339ED12F5F196008BF334 /* tinyxml.cpp */; };
+		6C4339F112F5F196008BF334 /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C4339EE12F5F196008BF334 /* tinyxmlerror.cpp */; };
+		6C4339F212F5F196008BF334 /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C4339EF12F5F196008BF334 /* tinyxmlparser.cpp */; };
+		6C4339F712F5F1D1008BF334 /* InternalLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C4339F412F5F1D1008BF334 /* InternalLoader.cpp */; };
+		6C4339F812F5F1D1008BF334 /* TMXLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C4339F512F5F1D1008BF334 /* TMXLoader.cpp */; };
+		6C4339F912F5F1D1008BF334 /* TMXMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C4339F612F5F1D1008BF334 /* TMXMap.cpp */; };
+		6C433A0212F5F21E008BF334 /* Tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C4339FF12F5F21E008BF334 /* Tile.cpp */; };
+		6C433A0312F5F21E008BF334 /* TileMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C433A0012F5F21E008BF334 /* TileMap.cpp */; };
+		6C433A0412F5F21E008BF334 /* TileSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C433A0112F5F21E008BF334 /* TileSet.cpp */; };
+		6C433A0712F5F28C008BF334 /* micropather.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C433A0612F5F28C008BF334 /* micropather.cpp */; };
+		6C433A0D12F5F3AE008BF334 /* AStarGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C433A0B12F5F3AE008BF334 /* AStarGraph.cpp */; };
+		6C433A0E12F5F3AE008BF334 /* Sokoban.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C433A0C12F5F3AE008BF334 /* Sokoban.cpp */; };
 		6C8445E512D9CE91006B37E6 /* Sokoban.icns in Resources */ = {isa = PBXBuildFile; fileRef = 6C8445E412D9CE91006B37E6 /* Sokoban.icns */; };
-		6CC44BBA12CB3FC30005F112 /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CC44BB712CB3FC30005F112 /* tinyxml.cpp */; };
-		6CC44BBB12CB3FC30005F112 /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CC44BB812CB3FC30005F112 /* tinyxmlerror.cpp */; };
-		6CC44BBC12CB3FC30005F112 /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CC44BB912CB3FC30005F112 /* tinyxmlparser.cpp */; };
 		6CD318DD12B95E1C00668A74 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CD318DC12B95E1C00668A74 /* main.cpp */; };
-		6CD318E212B95E6300668A74 /* TileMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CD318E012B95E6300668A74 /* TileMap.cpp */; };
-		6CD318E312B95E6300668A74 /* TileSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CD318E112B95E6300668A74 /* TileSet.cpp */; };
 		A0072ADE0F1D0EC500B4A594 /* sfml-system.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = A01FB6CB0F07CFF2000AAC7B /* sfml-system.framework */; };
 		A0072ADF0F1D0EC500B4A594 /* sfml-window.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = A01FB6CC0F07CFF2000AAC7B /* sfml-window.framework */; };
 		A0072AE00F1D0EC500B4A594 /* sfml-graphics.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = A01FB6CA0F07CFF2000AAC7B /* sfml-graphics.framework */; };
@@ -49,33 +49,33 @@
 
 /* Begin PBXFileReference section */
 		6C01163612BAA3A7009884DD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6C014C3E12D7B6EC0052B2D9 /* Sokoban.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sokoban.h; path = Sources/Sokoban.h; sourceTree = "<group>"; };
-		6C014C3F12D7B6EC0052B2D9 /* Sokoban.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sokoban.cpp; path = Sources/Sokoban.cpp; sourceTree = "<group>"; };
-		6C05FC2012BD694100E2BD3C /* TMXMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMXMap.h; path = Sources/TMXMap.h; sourceTree = "<group>"; };
-		6C05FC2112BD694100E2BD3C /* TMXMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TMXMap.cpp; path = Sources/TMXMap.cpp; sourceTree = "<group>"; };
-		6C05FC2512BD69D500E2BD3C /* InternalLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InternalLoader.h; path = Sources/InternalLoader.h; sourceTree = "<group>"; };
-		6C05FC2612BD69D500E2BD3C /* InternalLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = InternalLoader.cpp; path = Sources/InternalLoader.cpp; sourceTree = "<group>"; };
 		6C33584712D10CAC00140918 /* sokoban.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sokoban.png; path = Data/sokoban.png; sourceTree = "<group>"; };
 		6C33584812D10CAC00140918 /* levels.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = levels.tmx; path = Data/levels.tmx; sourceTree = "<group>"; };
-		6C39D4AD12EC6983009C3C24 /* AStarGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AStarGraph.h; path = Sources/AStarGraph.h; sourceTree = "<group>"; };
-		6C39D4AE12EC6983009C3C24 /* AStarGraph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AStarGraph.cpp; path = Sources/AStarGraph.cpp; sourceTree = "<group>"; };
-		6C52E7DE12CCF1800094BEE7 /* Tile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tile.h; path = Sources/Tile.h; sourceTree = "<group>"; };
-		6C52E7DF12CCF1800094BEE7 /* Tile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Tile.cpp; path = Sources/Tile.cpp; sourceTree = "<group>"; };
-		6C71B11A12BAA7E600D9D848 /* TMXLoader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TMXLoader.hpp; path = Sources/TMXLoader.hpp; sourceTree = "<group>"; };
-		6C71B11C12BAA7E600D9D848 /* TMXLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TMXLoader.cpp; path = Sources/TMXLoader.cpp; sourceTree = "<group>"; };
-		6C7A1EEA12EA2F9400A1370F /* micropather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = micropather.h; path = Sources/micropather.h; sourceTree = "<group>"; };
-		6C7A1EEB12EA2F9400A1370F /* micropather.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = micropather.cpp; path = Sources/micropather.cpp; sourceTree = "<group>"; };
+		6C4339EC12F5F196008BF334 /* tinyxml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tinyxml.h; path = Sources/TinyXML/tinyxml.h; sourceTree = "<group>"; };
+		6C4339ED12F5F196008BF334 /* tinyxml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyxml.cpp; path = Sources/TinyXML/tinyxml.cpp; sourceTree = "<group>"; };
+		6C4339EE12F5F196008BF334 /* tinyxmlerror.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyxmlerror.cpp; path = Sources/TinyXML/tinyxmlerror.cpp; sourceTree = "<group>"; };
+		6C4339EF12F5F196008BF334 /* tinyxmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyxmlparser.cpp; path = Sources/TinyXML/tinyxmlparser.cpp; sourceTree = "<group>"; };
+		6C4339F312F5F1D1008BF334 /* InternalLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InternalLoader.h; path = Sources/LibTMX/InternalLoader.h; sourceTree = "<group>"; };
+		6C4339F412F5F1D1008BF334 /* InternalLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = InternalLoader.cpp; path = Sources/LibTMX/InternalLoader.cpp; sourceTree = "<group>"; };
+		6C4339F512F5F1D1008BF334 /* TMXLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TMXLoader.cpp; path = Sources/LibTMX/TMXLoader.cpp; sourceTree = "<group>"; };
+		6C4339F612F5F1D1008BF334 /* TMXMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TMXMap.cpp; path = Sources/LibTMX/TMXMap.cpp; sourceTree = "<group>"; };
+		6C4339FA12F5F21E008BF334 /* Tile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tile.h; path = Sources/LibTMX/Tile.h; sourceTree = "<group>"; };
+		6C4339FB12F5F21E008BF334 /* TileMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TileMap.h; path = Sources/LibTMX/TileMap.h; sourceTree = "<group>"; };
+		6C4339FC12F5F21E008BF334 /* TileSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TileSet.h; path = Sources/LibTMX/TileSet.h; sourceTree = "<group>"; };
+		6C4339FD12F5F21E008BF334 /* TMXMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMXMap.h; path = Sources/LibTMX/TMXMap.h; sourceTree = "<group>"; };
+		6C4339FE12F5F21E008BF334 /* TMXLoader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TMXLoader.hpp; path = Sources/LibTMX/TMXLoader.hpp; sourceTree = "<group>"; };
+		6C4339FF12F5F21E008BF334 /* Tile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Tile.cpp; path = Sources/LibTMX/Tile.cpp; sourceTree = "<group>"; };
+		6C433A0012F5F21E008BF334 /* TileMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TileMap.cpp; path = Sources/LibTMX/TileMap.cpp; sourceTree = "<group>"; };
+		6C433A0112F5F21E008BF334 /* TileSet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TileSet.cpp; path = Sources/LibTMX/TileSet.cpp; sourceTree = "<group>"; };
+		6C433A0512F5F28C008BF334 /* micropather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = micropather.h; path = Sources/MicroPather/micropather.h; sourceTree = "<group>"; };
+		6C433A0612F5F28C008BF334 /* micropather.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = micropather.cpp; path = Sources/MicroPather/micropather.cpp; sourceTree = "<group>"; };
+		6C433A0812F5F3AE008BF334 /* AStarGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AStarGraph.h; path = Sources/Sokoban/AStarGraph.h; sourceTree = "<group>"; };
+		6C433A0912F5F3AE008BF334 /* const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = const.h; path = Sources/Sokoban/const.h; sourceTree = "<group>"; };
+		6C433A0A12F5F3AE008BF334 /* Sokoban.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sokoban.h; path = Sources/Sokoban/Sokoban.h; sourceTree = "<group>"; };
+		6C433A0B12F5F3AE008BF334 /* AStarGraph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AStarGraph.cpp; path = Sources/Sokoban/AStarGraph.cpp; sourceTree = "<group>"; };
+		6C433A0C12F5F3AE008BF334 /* Sokoban.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sokoban.cpp; path = Sources/Sokoban/Sokoban.cpp; sourceTree = "<group>"; };
 		6C8445E412D9CE91006B37E6 /* Sokoban.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Sokoban.icns; path = Data/Sokoban.icns; sourceTree = "<group>"; };
-		6CC44BB612CB3FC30005F112 /* tinyxml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tinyxml.h; path = Sources/tinyxml.h; sourceTree = "<group>"; };
-		6CC44BB712CB3FC30005F112 /* tinyxml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyxml.cpp; path = Sources/tinyxml.cpp; sourceTree = "<group>"; };
-		6CC44BB812CB3FC30005F112 /* tinyxmlerror.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyxmlerror.cpp; path = Sources/tinyxmlerror.cpp; sourceTree = "<group>"; };
-		6CC44BB912CB3FC30005F112 /* tinyxmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyxmlparser.cpp; path = Sources/tinyxmlparser.cpp; sourceTree = "<group>"; };
 		6CD318DC12B95E1C00668A74 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Sources/main.cpp; sourceTree = "<group>"; };
-		6CD318DE12B95E6300668A74 /* TileMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TileMap.h; path = Sources/TileMap.h; sourceTree = "<group>"; };
-		6CD318DF12B95E6300668A74 /* TileSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TileSet.h; path = Sources/TileSet.h; sourceTree = "<group>"; };
-		6CD318E012B95E6300668A74 /* TileMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TileMap.cpp; path = Sources/TileMap.cpp; sourceTree = "<group>"; };
-		6CD318E112B95E6300668A74 /* TileSet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TileSet.cpp; path = Sources/TileSet.cpp; sourceTree = "<group>"; };
-		6CEBB68E12D3A1FE0087E898 /* const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = const.h; path = Sources/const.h; sourceTree = "<group>"; };
 		A01FB6A90F07CF6E000AAC7B /* TMX_Renderer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMX_Renderer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A01FB6CA0F07CFF2000AAC7B /* sfml-graphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-graphics.framework"; path = "/Library/Frameworks/sfml-graphics.framework"; sourceTree = "<absolute>"; };
 		A01FB6CB0F07CFF2000AAC7B /* sfml-system.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-system.framework"; path = "/Library/Frameworks/sfml-system.framework"; sourceTree = "<absolute>"; };
@@ -100,10 +100,10 @@
 		6C014C3D12D7B64E0052B2D9 /* private */ = {
 			isa = PBXGroup;
 			children = (
-				6C05FC2512BD69D500E2BD3C /* InternalLoader.h */,
-				6C05FC2612BD69D500E2BD3C /* InternalLoader.cpp */,
-				6C05FC2012BD694100E2BD3C /* TMXMap.h */,
-				6C05FC2112BD694100E2BD3C /* TMXMap.cpp */,
+				6C4339F312F5F1D1008BF334 /* InternalLoader.h */,
+				6C4339F412F5F1D1008BF334 /* InternalLoader.cpp */,
+				6C4339F512F5F1D1008BF334 /* TMXLoader.cpp */,
+				6C4339F612F5F1D1008BF334 /* TMXMap.cpp */,
 			);
 			name = private;
 			sourceTree = "<group>";
@@ -111,15 +111,15 @@
 		6C33584412D0FADE00140918 /* LibTMX */ = {
 			isa = PBXGroup;
 			children = (
+				6C4339FA12F5F21E008BF334 /* Tile.h */,
+				6C4339FB12F5F21E008BF334 /* TileMap.h */,
+				6C4339FC12F5F21E008BF334 /* TileSet.h */,
+				6C4339FD12F5F21E008BF334 /* TMXMap.h */,
+				6C4339FE12F5F21E008BF334 /* TMXLoader.hpp */,
+				6C4339FF12F5F21E008BF334 /* Tile.cpp */,
+				6C433A0012F5F21E008BF334 /* TileMap.cpp */,
+				6C433A0112F5F21E008BF334 /* TileSet.cpp */,
 				6C014C3D12D7B64E0052B2D9 /* private */,
-				6C71B11A12BAA7E600D9D848 /* TMXLoader.hpp */,
-				6C71B11C12BAA7E600D9D848 /* TMXLoader.cpp */,
-				6CD318DF12B95E6300668A74 /* TileSet.h */,
-				6CD318E112B95E6300668A74 /* TileSet.cpp */,
-				6CD318DE12B95E6300668A74 /* TileMap.h */,
-				6CD318E012B95E6300668A74 /* TileMap.cpp */,
-				6C52E7DE12CCF1800094BEE7 /* Tile.h */,
-				6C52E7DF12CCF1800094BEE7 /* Tile.cpp */,
 			);
 			name = LibTMX;
 			sourceTree = "<group>";
@@ -127,10 +127,10 @@
 		6C33584612D0FAEE00140918 /* tinyXML */ = {
 			isa = PBXGroup;
 			children = (
-				6CC44BB612CB3FC30005F112 /* tinyxml.h */,
-				6CC44BB712CB3FC30005F112 /* tinyxml.cpp */,
-				6CC44BB812CB3FC30005F112 /* tinyxmlerror.cpp */,
-				6CC44BB912CB3FC30005F112 /* tinyxmlparser.cpp */,
+				6C4339EC12F5F196008BF334 /* tinyxml.h */,
+				6C4339ED12F5F196008BF334 /* tinyxml.cpp */,
+				6C4339EE12F5F196008BF334 /* tinyxmlerror.cpp */,
+				6C4339EF12F5F196008BF334 /* tinyxmlparser.cpp */,
 			);
 			name = tinyXML;
 			sourceTree = "<group>";
@@ -138,8 +138,8 @@
 		6C7A1EE912EA2F8000A1370F /* MicroPather */ = {
 			isa = PBXGroup;
 			children = (
-				6C7A1EEA12EA2F9400A1370F /* micropather.h */,
-				6C7A1EEB12EA2F9400A1370F /* micropather.cpp */,
+				6C433A0512F5F28C008BF334 /* micropather.h */,
+				6C433A0612F5F28C008BF334 /* micropather.cpp */,
 			);
 			name = MicroPather;
 			sourceTree = "<group>";
@@ -147,11 +147,11 @@
 		6CEBB68A12D3A0E60087E898 /* Sokoban */ = {
 			isa = PBXGroup;
 			children = (
-				6C39D4AD12EC6983009C3C24 /* AStarGraph.h */,
-				6C39D4AE12EC6983009C3C24 /* AStarGraph.cpp */,
-				6CEBB68E12D3A1FE0087E898 /* const.h */,
-				6C014C3E12D7B6EC0052B2D9 /* Sokoban.h */,
-				6C014C3F12D7B6EC0052B2D9 /* Sokoban.cpp */,
+				6C433A0912F5F3AE008BF334 /* const.h */,
+				6C433A0812F5F3AE008BF334 /* AStarGraph.h */,
+				6C433A0B12F5F3AE008BF334 /* AStarGraph.cpp */,
+				6C433A0A12F5F3AE008BF334 /* Sokoban.h */,
+				6C433A0C12F5F3AE008BF334 /* Sokoban.cpp */,
 			);
 			name = Sokoban;
 			sourceTree = "<group>";
@@ -273,18 +273,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CD318DD12B95E1C00668A74 /* main.cpp in Sources */,
-				6CD318E212B95E6300668A74 /* TileMap.cpp in Sources */,
-				6CD318E312B95E6300668A74 /* TileSet.cpp in Sources */,
-				6C71B11E12BAA7E600D9D848 /* TMXLoader.cpp in Sources */,
-				6C05FC2212BD694100E2BD3C /* TMXMap.cpp in Sources */,
-				6C05FC2712BD69D500E2BD3C /* InternalLoader.cpp in Sources */,
-				6CC44BBA12CB3FC30005F112 /* tinyxml.cpp in Sources */,
-				6CC44BBB12CB3FC30005F112 /* tinyxmlerror.cpp in Sources */,
-				6CC44BBC12CB3FC30005F112 /* tinyxmlparser.cpp in Sources */,
-				6C52E7E012CCF1800094BEE7 /* Tile.cpp in Sources */,
-				6C014C4012D7B6EC0052B2D9 /* Sokoban.cpp in Sources */,
-				6C7A1EEC12EA2F9400A1370F /* micropather.cpp in Sources */,
-				6C39D4AF12EC6983009C3C24 /* AStarGraph.cpp in Sources */,
+				6C4339F012F5F196008BF334 /* tinyxml.cpp in Sources */,
+				6C4339F112F5F196008BF334 /* tinyxmlerror.cpp in Sources */,
+				6C4339F212F5F196008BF334 /* tinyxmlparser.cpp in Sources */,
+				6C4339F712F5F1D1008BF334 /* InternalLoader.cpp in Sources */,
+				6C4339F812F5F1D1008BF334 /* TMXLoader.cpp in Sources */,
+				6C4339F912F5F1D1008BF334 /* TMXMap.cpp in Sources */,
+				6C433A0212F5F21E008BF334 /* Tile.cpp in Sources */,
+				6C433A0312F5F21E008BF334 /* TileMap.cpp in Sources */,
+				6C433A0412F5F21E008BF334 /* TileSet.cpp in Sources */,
+				6C433A0712F5F28C008BF334 /* micropather.cpp in Sources */,
+				6C433A0D12F5F3AE008BF334 /* AStarGraph.cpp in Sources */,
+				6C433A0E12F5F3AE008BF334 /* Sokoban.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
